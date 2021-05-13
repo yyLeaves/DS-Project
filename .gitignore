@@ -24,6 +24,6 @@ hs_err_pid*
 
 # my gitignore
 out/
-*.properties
 /test/
 /GUI/
+/neo4j.properties
