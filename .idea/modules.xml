@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/DSProject.iml" filepath="$PROJECT_DIR$/.idea/DSProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GUI/GUI.iml" filepath="$PROJECT_DIR$/GUI/GUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Neo4jUtil/Neo4jUtil.iml" filepath="$PROJECT_DIR$/Neo4jUtil/Neo4jUtil.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project_sociopath/project_sociopath.iml" filepath="$PROJECT_DIR$/project_sociopath/project_sociopath.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
+    </modules>
+  </component>
+</project>
