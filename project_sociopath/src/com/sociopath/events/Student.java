@@ -1,4 +1,8 @@
-import java.util.*;
+package com.sociopath.events;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Description:
@@ -6,7 +10,7 @@ import java.util.*;
  * @author Yeyang Liu, S2000549
  * Created on: 2021/5/11 14:05, in project PACKAGE_NAME
  */
-public class Student{
+public class Student {
     private static int inInc;
     private int id;
     private int dive;
@@ -14,6 +18,10 @@ public class Student{
     private int lunchStart;
     private int lunchPeriod;
     private HashMap<Student,Integer> relationships;
+
+    public HashMap<Student, Integer> getRelationships() {
+        return relationships;
+    }
 
     public Student() {
         id = ++inInc;
@@ -74,11 +82,30 @@ public class Student{
     }
 
     public void makeFriends(Student student, int inRep, int outRep) {
-        if(isFriendWith(student)) {
+        if (isFriendWith(student)) {
             return;
         }
-        relationships.put(student,inRep);
-        student.relationships.put(this,outRep);
+        relationships.put(student, inRep);
+        student.relationships.put(this, outRep);
+    }
+    public static ArrayList<Student> getStrangers(ArrayList<Student> students, Student currentStudent) {
+        ArrayList<Student> strangers = new ArrayList<>();
+        for (Student student : students) {
+            if(!student.isFriendWith(currentStudent)) {
+                strangers.add(student);
+            }
+        }
+        return strangers;
+    }
+
+    public static ArrayList<Student> getFriends(ArrayList<Student> students, Student currentStudent) {
+        ArrayList<Student> friends = new ArrayList<>();
+        for (Student student : students) {
+            if(student.isFriendWith(currentStudent)) {
+                friends.add(student);
+            }
+        }
+        return friends;
     }
 
     @Override
@@ -136,13 +163,15 @@ public class Student{
         }
         students[0].makeFriends(students[1],5,8);
         students[0].makeFriends(students[6],4,3);
+
         students[1].makeFriends(students[2],5,4);
         students[1].makeFriends(students[4],6,2);
         students[1].makeFriends(students[5],9,7);
+
         students[3].makeFriends(students[7],7,10);
         students[3].makeFriends(students[9],7,7);
         students[8].makeFriends(students[9],5,6);
-        new Student().printStudents(students);
+        Student.printStudents(students);
 
         System.out.println(students[1].isFriendWith(students[2]));
 

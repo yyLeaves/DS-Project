@@ -1,6 +1,7 @@
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import org.neo4j.graphdb.GraphDatabaseService;
 
 /**
  * Description:
@@ -72,6 +73,7 @@ public class StudentDatabase {
             stmt.executeQuery(query);
             // match student 1 and student 11, create a one-way relationship
             query = "MATCH(s1:Student{id:11}),(s2:Student{id:1}) CREATE (s1)-[r:KNOW{rep:10,isFriend:0}]->(s2) ";
+            stmt.executeQuery(query);
             Neo4jUtil.close(stmt);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -98,6 +100,7 @@ public class StudentDatabase {
         createExample();
 //        findExample();
 //        clear();
+
 
 
         Neo4jUtil.close(conn);
