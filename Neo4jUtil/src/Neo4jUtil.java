@@ -110,7 +110,7 @@ public class Neo4jUtil {
     public static void main(String[] args) {
         try {
             Connection conn = Neo4jUtil.getConnection();
-            String query = "Create (stu:stu1)";
+            String query = "Create (stu:Student)";
             Statement statement = conn.createStatement();
 
             statement.executeQuery(query);

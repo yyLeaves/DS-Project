@@ -14,17 +14,25 @@ import java.util.Properties;
  * Created on: 2021/5/12 22:25, in project com.sociopath.util
  */
 public class PathUtils {
-    public static String getPath(String fileName) {
-        String path;
-        Properties prop = new Properties();
+
+    private static final Properties prop;
+
+    static {
+        prop = new Properties();
         try {
             prop.load(new FileReader("path.properties"));
-            path = prop.getProperty(fileName);
-            return path;
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+    }
+
+    public static String getPath(String fileName) {
+        String path;
+//        Properties prop = new Properties();
+        //            prop.load(new FileReader("path.properties"));
+        path = prop.getProperty(fileName);
+        return path;
+//        return null;
     }
 
     public static void main(String[] args) {

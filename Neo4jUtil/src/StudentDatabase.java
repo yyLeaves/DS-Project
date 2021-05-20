@@ -23,7 +23,7 @@ public class StudentDatabase {
      */
     public static void init() {
         try {
-            String query = "MATCH(n) DELETE n";
+            String query = "MATCH(n) DETACH DELETE n";
             Statement stmt = conn.createStatement();
             stmt.executeQuery(query);
             Student[] students = new Student[10];
@@ -48,7 +48,7 @@ public class StudentDatabase {
      */
     public static void clear() {
         try {
-            String query = "MATCH(n) DELETE n";
+            String query = "MATCH(n) DETACH DELETE n";
             Statement stmt = conn.createStatement();
             stmt.executeQuery(query);
             Neo4jUtil.close(stmt);
@@ -64,9 +64,39 @@ public class StudentDatabase {
         Neo4jUtil.close(conn);
     }
 
+    public static void createExample() {
+        try {
+            Statement stmt = conn.createStatement();
+            // create a student
+            String query = "CREATE (stu:Student{id:11,dive:99})";
+            stmt.executeQuery(query);
+            // match student 1 and student 11, create a one-way relationship
+            query = "MATCH(s1:Student{id:11}),(s2:Student{id:1}) CREATE (s1)-[r:KNOW{rep:10,isFriend:0}]->(s2) ";
+            Neo4jUtil.close(stmt);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+/*
+    public static void findExample() {
+        try {
+            Statement stmt = conn.createStatement();
+            // create a student
+            String
+                    query = "MATCH(s1:Student{id:11}),(s2:Student{id:1}) DELETE (s1)->(s2) ";
+            stmt.executeQuery(query);
+            // match student 1 and student 11
+            Neo4jUtil.close(stmt);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+*/
 
     public static void main(String[] args) {
         init();
+        createExample();
+//        findExample();
 //        clear();
 
 

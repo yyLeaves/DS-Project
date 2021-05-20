@@ -130,11 +130,7 @@ class Relationship{
     }
 
     public void addReputation(int increment) {
-        if(reputation+increment>=10) {
-            reputation=10;
-        }else {
-            reputation+=increment;
-        }
+
     }
 
     @Override

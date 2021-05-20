@@ -13,7 +13,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.Properties;
 
 /**
  * Description:
@@ -25,14 +27,34 @@ public class EventsInterface extends JFrame {
 
     final int WIDTH = 1000;
     final int HEIGHT = 600;
+    private static Properties prop = new Properties();
+    private static String userName = "Student";
+
+    public EventsInterface()  {
+    }
+
+    public EventsInterface(String title) {
+        super(title);
+        userName = title;
+    }
 
     public static void main(String[] args) throws IOException {
         new EventsInterface().init();
     }
 
     public void init() throws IOException {
-        this.setTitle("Hello, User!");
-        setBounds(ScreenUtils.getScreenWidth()/2 - WIDTH/2, ScreenUtils.getScreenHeight()/2 - HEIGHT/2,WIDTH,HEIGHT);
+/*        try {
+            prop.load(new FileReader("user.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (userName != null) {
+            userName = prop.getProperty("user");
+        } else {
+            userName = "Student";
+        }*/
+        this.setTitle("Hello, " + userName + "!");
+        setBounds(ScreenUtils.getScreenWidth() / 2 - WIDTH / 2, ScreenUtils.getScreenHeight() / 2 - HEIGHT / 2, WIDTH, HEIGHT);
         setResizable(false);
         setIconImage(ImageIO.read(new File(PathUtils.getPath("event_icon_image"))));
 
@@ -88,19 +110,19 @@ public class EventsInterface extends JFrame {
             @Override
             public void valueChanged(TreeSelectionEvent e) {
                 Object lastPathComponent = e.getNewLeadSelectionPath().getLastPathComponent();
-                if(root.equals(lastPathComponent)) {
+                if (root.equals(lastPathComponent)) {
                     pane.setRightComponent(new JLabel("Powered by Anyname"));
                     pane.setDividerLocation(150);
 //                    pane.setRightComponent(new EventPanel());
-                } else if(initSetting.equals(lastPathComponent)) {
+                } else if (initSetting.equals(lastPathComponent)) {
                     pane.setRightComponent(new JLabel("To be implemented 0"));
 //                    pane.setBackground(new Color(0x7979F1));
                     pane.setRightComponent(new EventPanel());
                     pane.setDividerLocation(150);
-                } else if(event1.equals(lastPathComponent)) {
+                } else if (event1.equals(lastPathComponent)) {
                     pane.setRightComponent(new JLabel("To be implemented 1"));
                     pane.setDividerLocation(150);
-                } else if(event2.equals(lastPathComponent)) {
+                } else if (event2.equals(lastPathComponent)) {
                     pane.setRightComponent(new JLabel("To be implemented 2"));
                     pane.setDividerLocation(150);
                 }

@@ -10,8 +10,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.util.Properties;
 
 /**
  * Description:
@@ -21,7 +21,8 @@ import java.io.IOException;
  */
 public class MainInterface {
 
-    JFrame frame = new JFrame("Sociopath");
+    private JFrame frame = new JFrame("Sociopath");
+    private JComboBox<String> selectStudent;
 
     final int WIDTH = 500;
     final int HEIGHT = 300;
@@ -42,9 +43,13 @@ public class MainInterface {
         Box upBox = Box.createHorizontalBox();
         JLabel selectLabel = new JLabel("Select a student");
 
-        JComboBox<String> selectStudent = new JComboBox<>();
+        selectStudent = new JComboBox<>();
 
-        selectStudent.addItem("1");
+        // add select item
+        for (int i = 1; i < 11; i++) {
+            selectStudent.addItem(""+i);
+        }
+
         upBox.add(selectLabel);
         upBox.add(Box.createHorizontalStrut(20));
         upBox.add(selectStudent);
@@ -101,8 +106,17 @@ public class MainInterface {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            String selectedItem = (String)selectStudent.getSelectedItem();
+            System.out.println("You are currently playing as student "+ selectedItem);
+//            Properties prop = new Properties();
+//            prop.remove("user");
+
             try {
-                new EventsInterface().init();
+//                prop.load(new FileReader("user.properties"));
+//                prop.setProperty("user",selectedItem);
+//                prop.list(new PrintStream("user.properties"));
+//                System.out.println();
+                new EventsInterface(selectedItem).init();
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
