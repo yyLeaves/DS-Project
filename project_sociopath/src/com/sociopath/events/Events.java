@@ -9,11 +9,11 @@ import java.util.ArrayList;
  * Created on: 2021/5/21 0:18, in project PACKAGE_NAME
  */
 public class Events {
+    private int currentStudent = 1;
+
     public void setCurrentStudent(int currentStudent) {
         this.currentStudent = currentStudent;
     }
-
-    private int currentStudent = 1;
     private static ArrayList<Student> students;
 
     public ArrayList<Student> getStudents() {

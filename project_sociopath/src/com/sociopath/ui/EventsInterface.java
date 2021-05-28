@@ -1,6 +1,11 @@
 package com.sociopath.ui;
 
-import com.sociopath.component.EventPanel;
+import com.sociopath.component.IntroductionPanel;
+import com.sociopath.component.LibPanel;
+import com.sociopath.component.StudentInfoBox;
+import com.sociopath.component.TeachingPanel;
+import com.sociopath.events.E0Init;
+import com.sociopath.events.Student;
 import com.sociopath.util.PathUtils;
 import com.sociopath.util.ScreenUtils;
 
@@ -13,9 +18,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.Properties;
+import java.util.ArrayList;
 
 /**
  * Description:
@@ -27,34 +31,57 @@ public class EventsInterface extends JFrame {
 
     final int WIDTH = 1000;
     final int HEIGHT = 600;
-    private static Properties prop = new Properties();
-    private static String userName = "Student";
 
-    public EventsInterface()  {
+//    private static String userName = "Student";
+    private ArrayList<Student> students = null;
+
+    public EventsInterface(ArrayList<Student>students, Integer id) {
+        Student.setStudents(students);
+        this.students = Student.getStudents();
+        Student.setCurrentStudentId(id);
     }
 
+    public EventsInterface(Student student) {
+        this.students = Student.getStudents();
+        System.out.println(" "+Student.getCurrentStudentId());
+    }
+
+/*
     public EventsInterface(String title) {
         super(title);
         userName = title;
     }
 
+    public EventsInterface(String title, ArrayList<Student> students) {
+        super(title);
+        userName = title;
+        this.students = students;
+    }
+
+    public EventsInterface(ArrayList<Student> students) {
+        userName = ""+Student.getCurrentStudentId();
+        this.students = students;
+    }
+*/
+
+    public void initStudents() {
+        students = E0Init.init();
+        System.out.println("== Initializing... ==");
+        Student.printStudents(students);
+        System.out.println();
+    }
     public static void main(String[] args) throws IOException {
-        new EventsInterface().init();
+        new EventsInterface(E0Init.init(),Student.getCurrentStudentId()).init();
     }
 
     public void init() throws IOException {
-/*        try {
-            prop.load(new FileReader("user.properties"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if (userName != null) {
-            userName = prop.getProperty("user");
-        } else {
-            userName = "Student";
+        /*if (students == null) {
+            initStudents();
         }*/
-        this.setTitle("Hello, " + userName + "!");
+//        System.out.println(Student.getCurrentStudentId());
+        this.setTitle("Hello, Student" + Student.getCurrentStudentId() + "!");
         setBounds(ScreenUtils.getScreenWidth() / 2 - WIDTH / 2, ScreenUtils.getScreenHeight() / 2 - HEIGHT / 2, WIDTH, HEIGHT);
+//        setResizable(true);
         setResizable(false);
         setIconImage(ImageIO.read(new File(PathUtils.getPath("event_icon_image"))));
 
@@ -63,11 +90,12 @@ public class EventsInterface extends JFrame {
         JMenu settingMenu = new JMenu("Settings");
         JMenuItem switchItem = new JMenuItem("Switch");
         JMenuItem exitItem = new JMenuItem("Exit");
+        JMenuItem initItem = new JMenuItem("Initialize");
         switchItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    new MainInterface().init();
+                    new MainInterface(students).init();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -77,12 +105,38 @@ public class EventsInterface extends JFrame {
         exitItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println("== Bye Bye ==\nヾ(￣▽￣)Bye~Bye~");
                 System.exit(0);
+            }
+        });
+        initItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("== Initialize ==\n You will be logged out and the history will be cleared permanently. The data will be initialized. Please Confirm!\n");
+
+
+                int initOrNot = JOptionPane.showConfirmDialog(null, "The history will be permanently cleared, are you sure you want to init?",
+                        "Initialize Warning", JOptionPane.YES_NO_OPTION);
+                if(initOrNot==0) {
+                    Student.resetCount();
+                    students = E0Init.init();
+                    System.out.println("== Initializing ==");
+                    Student.printStudents(students);
+                    System.out.println();
+                    try {
+                        new MainInterface(students).init();
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                    dispose();
+                }
             }
         });
 
         settingMenu.add(switchItem);
         settingMenu.add(exitItem);
+        settingMenu.add(initItem);
+
         menuBar.add(settingMenu);
 
 //        add(menuBar);
@@ -94,15 +148,19 @@ public class EventsInterface extends JFrame {
         pane.setDividerLocation(150);
         pane.setDividerSize(5);
 
+
         // left panel
+
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("Events");
-        DefaultMutableTreeNode initSetting = new DefaultMutableTreeNode("Initialize");
-        DefaultMutableTreeNode event1 = new DefaultMutableTreeNode("Teach Stranger");
-        DefaultMutableTreeNode event2 = new DefaultMutableTreeNode("Chit Chat");
-        root.add(initSetting);
-        root.add(initSetting);
+        DefaultMutableTreeNode stats = new DefaultMutableTreeNode("Statistics");
+        DefaultMutableTreeNode event1 = new DefaultMutableTreeNode("Teach Stranger & Chit Chat");
+        DefaultMutableTreeNode event2 = new DefaultMutableTreeNode("???");
+        DefaultMutableTreeNode libEvent = new DefaultMutableTreeNode("Library");
+        root.add(stats);
+        root.add(stats);
         root.add(event1);
         root.add(event2);
+        root.add(libEvent);
 
         JTree tree = new JTree(root);
         tree.setSelectionRow(0);
@@ -111,26 +169,34 @@ public class EventsInterface extends JFrame {
             public void valueChanged(TreeSelectionEvent e) {
                 Object lastPathComponent = e.getNewLeadSelectionPath().getLastPathComponent();
                 if (root.equals(lastPathComponent)) {
-                    pane.setRightComponent(new JLabel("Powered by Anyname"));
+                    pane.setRightComponent(new IntroductionPanel());
                     pane.setDividerLocation(150);
 //                    pane.setRightComponent(new EventPanel());
-                } else if (initSetting.equals(lastPathComponent)) {
-                    pane.setRightComponent(new JLabel("To be implemented 0"));
+                } else if (stats.equals(lastPathComponent)) {
+                    // TODO: 2021/5/27 Debug
+                    pane.setRightComponent(new StudentInfoBox(20,students));
 //                    pane.setBackground(new Color(0x7979F1));
-                    pane.setRightComponent(new EventPanel());
+//                    pane.setRightComponent(new EventPanel());
                     pane.setDividerLocation(150);
                 } else if (event1.equals(lastPathComponent)) {
-                    pane.setRightComponent(new JLabel("To be implemented 1"));
+//                    pane.setRightComponent(new JLabel("To be implemented 1"));
+                    pane.setRightComponent(new TeachingPanel(students,/*currentStudent*/Student.getCurrentStudentId()));
                     pane.setDividerLocation(150);
                 } else if (event2.equals(lastPathComponent)) {
-                    pane.setRightComponent(new JLabel("To be implemented 2"));
+                    pane.setRightComponent(new JLabel("wt"));
+                    pane.setDividerLocation(150);
+                } else if (libEvent.equals(lastPathComponent)) {
+//                    pane.setRightComponent(new JLabel("lib"));
+                    pane.setRightComponent(new LibPanel());
                     pane.setDividerLocation(150);
                 }
 
             }
         });
         pane.setLeftComponent(tree);
-        pane.setRightComponent(new JLabel("Powered by Anyname"));
+        pane.getLeftComponent().setBackground(new Color(0xE8F5E6));
+
+        pane.setRightComponent(new IntroductionPanel());
 
 
         add(pane);

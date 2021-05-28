@@ -1,7 +1,8 @@
 package com.sociopath.ui;
 
 import com.sociopath.component.BackgroundPanel;
-import com.sociopath.component.SelectStudentBox;
+import com.sociopath.events.E0Init;
+import com.sociopath.events.Student;
 import com.sociopath.util.PathUtils;
 import com.sociopath.util.ScreenUtils;
 
@@ -11,7 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.util.Properties;
+import java.util.ArrayList;
 
 /**
  * Description:
@@ -21,11 +22,22 @@ import java.util.Properties;
  */
 public class MainInterface {
 
+    private ArrayList<Student> students = null;
+
     private JFrame frame = new JFrame("Sociopath");
     private JComboBox<String> selectStudent;
 
     final int WIDTH = 500;
     final int HEIGHT = 300;
+
+    public MainInterface() {
+        System.out.println("== Welcome! ==\n Please select your identity! Click 'See Graph' to see the relationships!\n");
+    }
+
+    public MainInterface(ArrayList<Student> students) {
+        System.out.println("== Welcome Back! ==\n Please switch your identity! Click 'See Graph' to see the relationships!\n");
+        this.students = students;
+    }
 
     public void init() throws IOException{
         frame.setBounds(ScreenUtils.getScreenWidth()/2 - WIDTH/2, ScreenUtils.getScreenHeight()/2 - HEIGHT/2,WIDTH,HEIGHT);
@@ -79,7 +91,9 @@ public class MainInterface {
         startButton.addActionListener(new StartListener());
     }
 
+
     public static void main(String[] args) throws IOException {
+
         new MainInterface().init();
     }
 
@@ -107,19 +121,20 @@ public class MainInterface {
         @Override
         public void actionPerformed(ActionEvent e) {
             String selectedItem = (String)selectStudent.getSelectedItem();
-            System.out.println("You are currently playing as student "+ selectedItem);
-//            Properties prop = new Properties();
-//            prop.remove("user");
-
+            System.out.println("== Hello! User! ==\n You are currently playing as student "+ selectedItem+"\n");
+            if(students==null) {
+                students = E0Init.init();
+                System.out.println("== Initializing... ==");
+                Student.printStudents(students);
+                System.out.println();
+            }
             try {
-//                prop.load(new FileReader("user.properties"));
-//                prop.setProperty("user",selectedItem);
-//                prop.list(new PrintStream("user.properties"));
-//                System.out.println();
-                new EventsInterface(selectedItem).init();
+//                new EventsInterface(selectedItem,students).init();
+                new EventsInterface(students,Integer.parseInt((String) selectedItem)).init();
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
+            Student.setCurrentStudentId(Integer.parseInt((String) selectedItem));
             frame.dispose();
         }
     }
