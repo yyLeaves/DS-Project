@@ -21,3 +21,5 @@ password=yourpassword
   - Toh, Niu -> event 3, 4, 6
   - Liu, Cheong -> event 1, 2, 5, neo4j db
 - Discuss the time for next meeting - 27/05/2021
+
+# 28/5
