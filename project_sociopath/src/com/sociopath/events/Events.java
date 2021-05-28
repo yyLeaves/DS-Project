@@ -5,8 +5,6 @@ import java.util.ArrayList;
 /**
  * Description:
  *
- * @author Yeyang Liu, S2000549
- * Created on: 2021/5/21 0:18, in project PACKAGE_NAME
  */
 public class Events {
     private int currentStudent = 1;

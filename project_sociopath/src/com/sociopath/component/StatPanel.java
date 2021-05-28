@@ -194,7 +194,7 @@ public class StatPanel extends JPanel {
                             try {
                                 Integer.parseInt((String) key);
                             } catch (NumberFormatException exception) {
-                                System.out.println("== ERROR! ==\n Integer Required!");
+                                System.out.println("== ERROR! ==\n Integer Required!\n");
                                 JOptionPane.showMessageDialog(null, "Lunch start must be an integer!\n", "ERROR!", JOptionPane.WARNING_MESSAGE);
                                 // value must be a string
                                 model.setValueAt("" + startOriginal, row, column);

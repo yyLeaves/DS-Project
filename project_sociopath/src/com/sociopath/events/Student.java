@@ -26,8 +26,6 @@ public class Student {
         return relationships;
     }
 
-    private LinkedList<String> chats = null;
-
     public Student() {
         id = ++inInc;
         // 0 < dive < 100 (%) || [1,99]
@@ -213,6 +211,9 @@ public class Student {
         }
     }
 
+    /**
+     * Test program
+     */
     public static void main(String[] args) {
         Student[] students = new Student[10];
         for (int i = 0; i < 10; i++) {

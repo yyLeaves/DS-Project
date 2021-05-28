@@ -38,7 +38,7 @@ public class TeachingPanel extends JPanel {
         teachButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("== Teaching ==");
+                System.out.println("== Teaching & Chit Chat ==");
                 E1Teaching teach = new E1Teaching(students);
                 String s;
 
