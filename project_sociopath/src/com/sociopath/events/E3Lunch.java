@@ -61,6 +61,7 @@ public class E3Lunch {
     }
 
     // A normal tester
+/*
     public static void main(String[] args) {
         Student a = new Student();
         Student b = new Student();
@@ -75,4 +76,5 @@ public class E3Lunch {
         ArrayList<Student> ans = e.findMaxSolution();
         for (Student an : ans) System.out.print(an.getLunchStart() + " ");
     }
+*/
 }
