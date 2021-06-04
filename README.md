@@ -53,8 +53,8 @@
 + **How to use?**
   ```java
   E3Lunch VARIABLE1= new E3Lunch(YOUR STUDENT ARRAYLIST HERE); // constructor
-  ArrayList<Student> VARIABLE2 = VARIABLE.receiver(STUDENT OBJECT YOU); // functional method
-  System.out.println(VARIABLE2.getLunchList(ans)); // printer
+  ArrayList<Student> VARIABLE2 = VARIABLE1.receiver(STUDENT OBJECT YOU); // functional method
+  System.out.println(VARIABLE1.getLunchList(VARIABLE2)); // printer
   ```
   Sample Output:
   ```
