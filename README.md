@@ -18,8 +18,14 @@
 - Assign extra feature work & ddl of basic features to team members
   + yeyang & huiting: 1,2,5（Week 12一定要弄好） + parallel farming(不是Week 12)
   + toh & niu：3，4，6（Week 12一定要弄好）+ six degree（不是Week 12）
+- Discuss the time for next meeting - 28/05/2021
 
-# Third Meeting
+# 04/06/2021 Third Meeting
+- Discuss the difficultis in event 5&6
+- Discuss the time for next meeting - 05/06/2021
+
+
+# 05/06/2021 Fourth Meeting
 
 # Handbook
 
