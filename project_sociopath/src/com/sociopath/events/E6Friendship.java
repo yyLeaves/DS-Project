@@ -1,3 +1,5 @@
+package com.sociopath.events;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -52,14 +54,20 @@ public class E6Friendship {
         isVisited[u] = false;
     }
 
-    public static void callE6() {
-        Scanner x = new Scanner(System.in);
-        System.out.println("Input:");
-        int amountOfVertices = x.nextInt();
+    public static void callE6(int amountOfVertices, int[][] vertices) {
+//        Scanner x = new Scanner(System.in);
+//        System.out.println("Input:");
+//        int amountOfVertices = x.nextInt();
         E6Friendship g = new E6Friendship(amountOfVertices);
-        for (int i=0; i<amountOfVertices; i++){
+/*        for (int i=0; i<amountOfVertices; i++){
             g.addEdge(x.nextInt()-1, x.nextInt()-1);
+        }*/
+
+        for (int[] vertex : vertices) {
+            g.addEdge(vertex[0]-1,vertex[1]-1);
         }
+
+
         System.out.println("Output:");
         for (int i=0; i<amountOfVertices;i++){
             for(int n=0; n<amountOfVertices; n++){
@@ -70,7 +78,12 @@ public class E6Friendship {
         }
     }
 // Tester
-//     public static void main(String[] args) {
+     public static void main(String[] args) {
 //         callE6();
-//     }
+         int amount = 3;
+         int[][] v = new int[][]{{1,3},{2,3},{1,2}};
+         callE6(amount,v);
+
+
+     }
 }
