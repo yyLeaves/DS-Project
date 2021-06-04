@@ -35,9 +35,9 @@ public static void main(String[] args) {
     }
 ```
 
-![image-20210605031909097](C:\Users\Yeyang\AppData\Roaming\Typora\typora-user-images\image-20210605031909097.png)
+![image-20210605031909097](img1.png)
 
-<u>Bug: 11:30-11:50 not found</u>
+**<u>Bug**: 11:30-11:50 not found</u>
 
 
 
@@ -45,4 +45,4 @@ public static void main(String[] args) {
 
 <u>Can you rearrange the output by its length and return a String like this?</u>
 
-![image-20210605032213942](C:\Users\Yeyang\AppData\Roaming\Typora\typora-user-images\image-20210605032213942.png)
+![image-20210605032213942](img2.png)
