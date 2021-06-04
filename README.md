@@ -76,5 +76,5 @@ Uncomment line 73->77 and line 81->97, then run it.
   ```java
   E6Friendship.callE6();
   ```
-+ **How to test?**
++ **How to test?**<br />
 Uncomment line 72->75, then run it.
