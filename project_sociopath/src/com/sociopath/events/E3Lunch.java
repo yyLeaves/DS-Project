@@ -45,6 +45,17 @@ public class E3Lunch {
         return end;
     }
 
+    // To return a description on the lunch arrangement
+    public String getLunchList(ArrayList<Student> ans){
+        String temp = "";
+        String temp2= "I can have lunch with Student ";
+        for (Student an : ans) {
+            temp2 = temp2 + an.getId() + ",";
+            temp = temp + "Student ID:" + an.getId() + "\nLunch Period: " + String.valueOf(an.getLunchStart()).substring(0, String.valueOf(an.getLunchStart()).length()-2) + ":" + String.valueOf(an.getLunchStart()).substring(2) + "-->" + String.valueOf(getEndTIme(an)).substring(0, String.valueOf(getEndTIme(an)).length()-2) + ":" + String.valueOf(getEndTIme(an)).substring(2) + "\n";
+        }
+        return "-".repeat(38) + "\n" + temp2.substring(0,temp2.length()-1) + ".\n\n" + temp + "-".repeat(38);
+    }
+
     // To sort the end time in ascending order.
     public void ascendingByEndTime(ArrayList<Student> stu){
         for (int n=0; n < stu.size()-1; n++) {
@@ -81,7 +92,8 @@ public class E3Lunch {
         E3Lunch e= new E3Lunch(s);
         ArrayList<Student> ans = e.receiver(a);
         for (Student an : ans) System.out.print(an.getLunchStart() + " ");
+        System.out.println(e.getLunchList(ans));
     }
+*/
 
- */
 }
