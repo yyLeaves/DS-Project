@@ -8,13 +8,10 @@ import java.util.Map;
  *
  */
 public class E2ChitChat {
-    private static ArrayList<String> chitChats;
-
-    public static ArrayList<String> getChitChats() {
-        return chitChats;
-    }
 
     public static String chitChat(ArrayList<Student> students, Student studentChitChat, Student you) {
+        // The person must already know about you to chitchat with his friends about you
+        // studentChitChat.getRelationships().get(you) must not be null
         int repAboutYou = studentChitChat.getRelationships().get(you);
         ArrayList<Student> friends = Student.getFriends(students, studentChitChat);
         String returnStr = "";
@@ -37,5 +34,11 @@ public class E2ChitChat {
         }
         return returnStr;
 
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Student> students = E0Init.init();
+        String s = E2ChitChat.chitChat(students, students.get(1), students.get(4));
+        System.out.println(s);
     }
 }

@@ -35,7 +35,7 @@ public class E1Teaching {
         boolean success = Math.random()*100 < students.get(currentStudent-1).getDive();
 //        System.out.println(students.get(currentStudent).getDive());
         int diveOfStudentToHelp = studentToHelp.getDive();
-        String returnStr = "";
+        String returnStr = diveOfStudentToHelp+" needs your help!\n";
         if(success) {
 //            System.out.printf("Congratulations! You helped %d solved the problem!, Your rep to him increases by 10, " +
 //                    "his reputation to you increases by %d\n",studentToHelp.getId(),diveOfStudentToHelp*10/100);
@@ -60,7 +60,10 @@ public class E1Teaching {
     }
 
     public static void main(String[] args) {
-
+        ArrayList<Student> students = E0Init.init();
+        E1Teaching teach = new E1Teaching(students);
+        String s = teach.teachAStranger(1);
+        System.out.println(s);
 
     }
 

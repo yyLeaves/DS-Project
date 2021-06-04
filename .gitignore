@@ -27,3 +27,4 @@ out/
 /GUI/
 /neo4j.properties
 .idea/
+*.iml
