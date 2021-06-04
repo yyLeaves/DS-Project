@@ -31,8 +31,8 @@ password=yourpassword
 + **How to use?**
   ```java
   E3Lunch VARIABLE1= new E3Lunch(YOUR STUDENT ARRAYLIST HERE);
-  ArrayList<Student> VARIABLE2 = VARIABLE.findMaxSolution();
+  ArrayList<Student> VARIABLE2 = VARIABLE.receiver(STUDENT OBJECT YOU);
   ``` 
 + **How to test?**<br>
-Uncomment line 56->60 and line 65->78, then run it.
+Uncomment line 62->66 and line 70->86, then run it.
 
