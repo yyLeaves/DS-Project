@@ -33,7 +33,18 @@ password=yourpassword
   E3Lunch VARIABLE1= new E3Lunch(YOUR STUDENT ARRAYLIST HERE); // constructor
   ArrayList<Student> VARIABLE2 = VARIABLE.receiver(STUDENT OBJECT YOU); // functional method
   System.out.println(VARIABLE1.getLunchList(ans)); // printer
-  ``` 
+  ```
+  Sample Output:
+  ```
+  --------------------------------------
+  I can have lunch with Student 4,3.
+
+  Student ID:4
+  Lunch Period: 11:35-->12:09
+  Student ID:3
+  Lunch Period: 12:28-->13:00
+  --------------------------------------
+  ```
 + **How to test?**<br>
 Uncomment line 73->77 and line 81->97, then run it.
 
