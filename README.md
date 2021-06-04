@@ -1,4 +1,16 @@
-# <center>Data Structure Assignment</center>
+# DS
+> For the Neo4j database, create a file "neo4j.properties"
+>
+> If you have set up a neo4j database remotely, just replace "localhost" with remote ip address
+>
+> Default username and password are all neo4j
+
+```
+url=jdbc:neo4j:http://localhost
+user=yourusername
+password=yourpassword
+```
+**The above is all I know about neo4j, I'm still confused with the syntax**
 
 # 20/05/2021 First Meeting
 - Discuss about the project
@@ -10,50 +22,29 @@
   - Liu, Cheong -> event 1, 2, 5, neo4j db
 - Discuss the time for next meeting - 27/05/2021
 
-# 28/05/2021 Second Meeting
-- Update on each others' progress
-- Discuss about extra features to implement
-- Abandon the use of neo4j
-- Discuss about the use of git repository
-- Assign extra feature work & ddl of basic features to team members
-  + yeyang & huiting: 1,2,5（Week 12一定要弄好） + parallel farming(不是Week 12)
-  + toh & niu：3，4，6（Week 12一定要弄好）+ six degree（不是Week 12）
-
-# Third Meeting
+# 28/5 Second Meeting
++ yeyang & huiting: 1,2,5（Week 12一定要弄好） + parallel farming(不是Week 12)
++ toh & niu：3，4，6（Week 12一定要弄好）+ six degree（不是Week 12）
 
 # Handbook
-
-### E0 Initialize:
-+ **How to use?**
-  ```java
-  // to get the initialized Student ArrayList as said in the question
-  ArrayList<Student> students = E0Init.init();
-  ```
-
-### E1 Teaching:
-+ **How to use?**
-  ```java
-  ArrayList<Student> students = E0Init.init();
-  E1Teaching teach = new E1Teaching(students);
-  String s = teach.teachAStranger(1);
-  // s describes this event
-  ```
-
-### E2 ChitChat:
-+ **How to use?**
-  ```java
-  // the chit chat part depends on the teaching event
-  // the teaching event will automatically call the chit chat method
-  String s = E2ChitChat.chitChat(students, students.get(1), students.get(4));
-  // s describes this event
-  ```
-
 ### E3 Lunch:
 + **How to use?**
   ```java
-  E3Lunch VARIABLE1= new E3Lunch(YOUR STUDENT ARRAYLIST HERE);
-  ArrayList<Student> VARIABLE2 = VARIABLE.receiver(STUDENT OBJECT YOU);
-  ``` 
+  E3Lunch VARIABLE1= new E3Lunch(YOUR STUDENT ARRAYLIST HERE); // constructor
+  ArrayList<Student> VARIABLE2 = VARIABLE.receiver(STUDENT OBJECT YOU); // functional method
+  System.out.println(VARIABLE1.getLunchList(ans)); // printer
+  ```
+  Sample Output:
+  ```
+  --------------------------------------
+  I can have lunch with Student 4,3.
+
+  Student ID:4
+  Lunch Period: 11:35-->12:09
+  Student ID:3
+  Lunch Period: 12:28-->13:00
+  --------------------------------------
+  ```
 + **How to test?**<br>
-  Uncomment line 62->66 and line 70->86, then run it.
+Uncomment line 73->77 and line 81->97, then run it.
 

@@ -12,7 +12,7 @@ public class E3Lunch {
     private static ArrayList<Student> students;
 
     public E3Lunch(ArrayList<Student> deStudents){
-        students = deStudents;
+        students = (ArrayList<Student>) deStudents.clone();
     }
 
     public ArrayList<Student> findMaxSolution(){
@@ -30,6 +30,12 @@ public class E3Lunch {
         return ans;
     }
 
+    // This is the method need to be called
+    public ArrayList<Student> receiver(Student you){
+        students.remove(you);
+        return findMaxSolution();
+    }
+
     // To get the end time of a student's lunch time.
     public int getEndTIme(Student s){
         int end = s.getLunchPeriod()+s.getLunchStart();
@@ -37,6 +43,17 @@ public class E3Lunch {
             end = end + 40; // to make sure minutes part won't exceed or equal to 60
         }
         return end;
+    }
+
+    // To return a description on the lunch arrangement
+    public String getLunchList(ArrayList<Student> ans){
+        String temp = "";
+        String temp2= "I can have lunch with Student ";
+        for (Student an : ans) {
+            temp2 = temp2 + an.getId() + ",";
+            temp = temp + "Student ID:" + an.getId() + "\nLunch Period: " + String.valueOf(an.getLunchStart()).substring(0, String.valueOf(an.getLunchStart()).length()-2) + ":" + String.valueOf(an.getLunchStart()).substring(2) + "-->" + String.valueOf(getEndTIme(an)).substring(0, String.valueOf(getEndTIme(an)).length()-2) + ":" + String.valueOf(getEndTIme(an)).substring(2) + "\n";
+        }
+        return "-".repeat(38) + "\n" + temp2.substring(0,temp2.length()-1) + ".\n\n" + temp + "-".repeat(38);
     }
 
     // To sort the end time in ascending order.
@@ -57,7 +74,7 @@ public class E3Lunch {
         for (Student s : students){
             System.out.print(s.getLunchStart() + "/" + getEndTIme(s) + "\n");
         }
- */
+*/
     }
 
     // A normal tester
@@ -73,8 +90,10 @@ public class E3Lunch {
         s.add(c);
         s.add(d);
         E3Lunch e= new E3Lunch(s);
-        ArrayList<Student> ans = e.findMaxSolution();
+        ArrayList<Student> ans = e.receiver(a);
         for (Student an : ans) System.out.print(an.getLunchStart() + " ");
+        System.out.println(e.getLunchList(ans));
     }
 */
+
 }
