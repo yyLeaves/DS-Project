@@ -30,9 +30,10 @@ password=yourpassword
 ### E3 Lunch:
 + **How to use?**
   ```java
-  E3Lunch VARIABLE1= new E3Lunch(YOUR STUDENT ARRAYLIST HERE);
-  ArrayList<Student> VARIABLE2 = VARIABLE.receiver(STUDENT OBJECT YOU);
+  E3Lunch VARIABLE1= new E3Lunch(YOUR STUDENT ARRAYLIST HERE); // constructor
+  ArrayList<Student> VARIABLE2 = VARIABLE.receiver(STUDENT OBJECT YOU); // functional method
+  System.out.println(VARIABLE1.getLunchList(ans)); // printer
   ``` 
 + **How to test?**<br>
-Uncomment line 62->66 and line 70->86, then run it.
+Uncomment line 73->77 and line 81->97, then run it.
 
