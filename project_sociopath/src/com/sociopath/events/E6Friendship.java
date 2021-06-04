@@ -52,7 +52,7 @@ public class E6Friendship {
         isVisited[u] = false;
     }
 
-    public static void main(String[] args) {
+    public static void callE6() {
         Scanner x = new Scanner(System.in);
         System.out.println("Input:");
         int amountOfVertices = x.nextInt();
@@ -69,4 +69,8 @@ public class E6Friendship {
             }
         }
     }
+// Tester
+//     public static void main(String[] args) {
+//         callE6();
+//     }
 }
