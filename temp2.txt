@@ -1,0 +1,71 @@
+  package com.sociopath.events;
+
+    import java.util.ArrayList;
+    import java.util.HashSet;
+    import java.util.Scanner;
+    import java.util.Set;
+
+    public class E6Friendship {
+        private static ArrayList<ArrayList<Integer>> relationTable;
+
+        public E6Friendship() {
+            relationTable = new ArrayList<>();
+        }
+
+        public static ArrayList<ArrayList<Integer>> combineSameElement(int amount){
+            ArrayList<Integer> temp = new ArrayList<>();
+            ArrayList<Integer> temp3 = new ArrayList<>();
+            ArrayList<ArrayList<Integer>> temp2 = new ArrayList<>();
+            for(int i=0; i<relationTable.size();i++){
+                for(int n=i; n<relationTable.size();n++){
+                    for(int k=0; k<2;k++){
+                        if (relationTable.get(i).contains(relationTable.get(n).get(k))){
+                            temp.addAll(relationTable.get(i));
+                            temp.addAll(relationTable.get(n));
+                        }
+                        if (relationTable.get(n).contains(relationTable.get(i).get(k))){
+                            temp3.addAll(relationTable.get(i));
+                            temp3.addAll(relationTable.get(n));
+                        }
+                    }
+                    Set<Integer> set = new HashSet<>(temp);
+                    ArrayList<Integer> newArrayList = new ArrayList<>(set);
+                    if (newArrayList.size() <= amount) {
+                        temp2.add(newArrayList);
+                    }
+
+                    Set<Integer> set3 = new HashSet<>(temp3);
+                    ArrayList<Integer> newArrayList3 = new ArrayList<>(set3);
+                    if (newArrayList3.size() <= amount) {
+                        temp2.add(newArrayList3);
+                    }
+                }
+            }
+            Set<ArrayList<Integer>> set2 = new HashSet<>(temp2);
+            return new ArrayList<>(set2);
+        }
+
+
+
+
+        public static void main(String[] args) {
+            Scanner s =new Scanner(System.in);
+            int amount = s.nextInt();
+            int amount2 = amount;
+            E6Friendship test = new E6Friendship();
+            while(amount != 0){
+                int temp1 = s.nextInt();
+                int temp2 = s.nextInt();
+                ArrayList<Integer> tmpArrayList = new ArrayList<>();
+                tmpArrayList.add(temp1);
+                tmpArrayList.add(temp2);
+                System.out.println(temp1 + " " + temp2);
+                relationTable.add(tmpArrayList);
+                amount--;
+            }
+            System.out.println(combineSameElement(amount2));
+
+        }
+
+
+    }
