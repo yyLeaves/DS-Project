@@ -12,7 +12,7 @@ public class E3Lunch {
     private static ArrayList<Student> students;
 
     public E3Lunch(ArrayList<Student> deStudents){
-        students = deStudents;
+        students = (ArrayList<Student>) deStudents.clone();
     }
 
     public ArrayList<Student> findMaxSolution(){
@@ -28,6 +28,12 @@ public class E3Lunch {
             }
         }
         return ans;
+    }
+
+    // This is the method need to be called
+    public ArrayList<Student> receiver(Student you){
+        students.remove(you);
+        return findMaxSolution();
     }
 
     // To get the end time of a student's lunch time.
@@ -57,7 +63,7 @@ public class E3Lunch {
         for (Student s : students){
             System.out.print(s.getLunchStart() + "/" + getEndTIme(s) + "\n");
         }
- */
+*/
     }
 
     // A normal tester
@@ -73,8 +79,9 @@ public class E3Lunch {
         s.add(c);
         s.add(d);
         E3Lunch e= new E3Lunch(s);
-        ArrayList<Student> ans = e.findMaxSolution();
+        ArrayList<Student> ans = e.receiver(a);
         for (Student an : ans) System.out.print(an.getLunchStart() + " ");
     }
-*/
+
+ */
 }
