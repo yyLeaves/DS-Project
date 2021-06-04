@@ -1,3 +1,4 @@
+/*
 package com.sociopath.events;
 
 import java.util.ArrayList;
@@ -6,7 +7,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 
-/*public class ProjectDS {
+public class ProjectDS {
 
     public static void main(String[] args) {
         ArrayList<Student> students = new ArrayList<>();
@@ -16,13 +17,12 @@ import java.util.Random;
         int n= s.nextInt();
         System.out.println("Your crush: Student" +n);
         
-        
-       *//*----- find out random stanger from different cluster ----
-        
-        The rumor will start in the stranger’s cluster and your crush is in another cluster. You
-        might identify someone connected between these 2 clusters??? there is only 2 cluster, where am I
-       ###### Here I take it as I'm in the diff cluster from stranger#####
-        *//*
+//       ----- find out random stanger from different cluster ----
+//
+//        The rumor will start in the stranger’s cluster and your crush is in another cluster. You
+//        might identify someone connected between these 2 clusters??? there is only 2 cluster, where am I
+//       ###### Here I take it as I'm in the diff cluster from stranger#####
+
         
         System.out.println("Student "+rumorSpreader()+" is spreading rumors about you");
         //call rumorSpreader x crush connection
@@ -97,11 +97,11 @@ import java.util.Random;
         
         
         
-        */
-    
+
     
     
    
 
 
 
+*/

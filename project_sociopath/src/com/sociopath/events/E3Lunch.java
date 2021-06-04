@@ -78,22 +78,35 @@ public class E3Lunch {
     }
 
     // A normal tester
-/*
     public static void main(String[] args) {
-        Student a = new Student();
-        Student b = new Student();
-        Student c = new Student();
-        Student d = new Student();
         ArrayList<Student> s = new ArrayList<>();
-        s.add(a);
-        s.add(b);
-        s.add(c);
-        s.add(d);
+
+        for (int i = 0; i < 9; i++) {
+            s.add(new Student());
+        }
+
+        s.get(0).setLunchStart(1100);
+        s.get(0).setLunchPeriod(20);
+
+        s.get(1).setLunchStart(1110);
+        s.get(1).setLunchPeriod(20);
+
+        s.get(2).setLunchStart(1130);
+        s.get(2).setLunchPeriod(20);
+
+        s.get(3).setLunchStart(1330);
+        s.get(3).setLunchPeriod(20);
+
+        s.get(7).setLunchStart(1150);
+        s.get(7).setLunchPeriod(20);
+
         E3Lunch e= new E3Lunch(s);
-        ArrayList<Student> ans = e.receiver(a);
+        ArrayList<Student> ans = e.receiver(s.get(0));
         for (Student an : ans) System.out.print(an.getLunchStart() + " ");
         System.out.println(e.getLunchList(ans));
+
+        Student.printStudents(s);
+
     }
-*/
 
 }
