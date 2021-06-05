@@ -1,17 +1,18 @@
 package com.sociopath.events;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class E6Friendship {
     private int vertex;
     private ArrayList<Integer>[] adjacencyList;
+    private static ArrayList<ArrayList<Integer>> ans;
 
     public E6Friendship(int vertices) {
 
         this.vertex = vertices;
-
+        ans = new ArrayList<>();
         initAdjList();
     }
 
@@ -38,9 +39,10 @@ public class E6Friendship {
 
     private void findAllPaths(Integer u, Integer d, boolean[] isVisited, List<Integer> pathList) {
         if (u.equals(d)) {
+            ArrayList<Integer> temp = new ArrayList<>();
             for(Integer integer:pathList)
-                System.out.print(integer + 1 + " ");
-            System.out.println();
+                temp.add(integer + 1);
+            ans.add(temp);
             return;
         }
         isVisited[u] = true;
@@ -52,6 +54,19 @@ public class E6Friendship {
             }
         }
         isVisited[u] = false;
+    }
+
+    public static void sorting(){
+        for (int pass=0; pass<ans.size()-1;pass++){
+            for (int i=0; i<ans.size()-1-pass; i++){
+                ArrayList<Integer> tmp;
+                if (ans.get(i).size() > ans.get(i+1).size()){
+                    tmp = ans.get(i);
+                    ans.set(i, ans.get(i+1));
+                    ans.set(i+1, tmp);
+                }
+            }
+        }
     }
 
     public static void callE6(int amountOfVertices, int[][] vertices) {
@@ -68,7 +83,7 @@ public class E6Friendship {
         }
 
 
-        System.out.println("Output:");
+        System.out.print("Output: ");
         for (int i=0; i<amountOfVertices;i++){
             for(int n=0; n<amountOfVertices; n++){
                 if(i<n){
@@ -76,14 +91,19 @@ public class E6Friendship {
                 }
             }
         }
+        sorting();
+        System.out.println(ans.size());
+        for (int i=0; i<ans.size(); i++){
+            System.out.println(i + 1 + ". " + ans.get(i));
+        }
     }
-// Tester
-     public static void main(String[] args) {
+    // Tester
+    public static void main(String[] args) {
 //         callE6();
-         int amount = 3;
-         int[][] v = new int[][]{{1,3},{2,3},{1,2}};
-         callE6(amount,v);
+        int amount = 3;
+        int[][] v = new int[][]{{1,3},{2,3},{1,2}};
+        callE6(amount,v);
 
 
-     }
+    }
 }
