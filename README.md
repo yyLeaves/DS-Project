@@ -74,7 +74,7 @@
   --------------------------------------
   ```
 + **How to test?**<br>
-Uncomment line 73->77 and line 81->97, then run it.
+~~Uncomment line 73->77 and line 81->97, then run it.~~
 
 
 ### E6 Friendship:
@@ -82,5 +82,20 @@ Uncomment line 73->77 and line 81->97, then run it.
   ```java
   E6Friendship.callE6();
   ```
+  Sample Output:
+  ```
+  Output: 11
+  1. [1, 2]
+  2. [2, 3]
+  3. [2, 4]
+  4. [3, 4]
+  5. [1, 2, 3]
+  6. [1, 2, 4]
+  7. [2, 4, 3]
+  8. [2, 3, 4]
+  9. [3, 2, 4]
+  10. [1, 2, 4, 3]
+  11. [1, 2, 3, 4]
+  ```
 + **How to test?**<br />
-Uncomment line 72->75, then run it.
+~~Uncomment line 72->75, then run it.~~
