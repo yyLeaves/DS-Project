@@ -102,7 +102,7 @@ public class E3Lunch {
 
         E3Lunch e= new E3Lunch(s);
         ArrayList<Student> ans = e.receiver(s.get(0));
-        for (Student an : ans) System.out.print(an.getLunchStart() + " ");
+        //for (Student an : ans) System.out.print(an.getLunchStart() + " ");
         System.out.println(e.getLunchList(ans));
 
         Student.printStudents(s);
