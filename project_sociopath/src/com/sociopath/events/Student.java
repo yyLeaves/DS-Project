@@ -111,6 +111,19 @@ public class Student {
         return strangers;
     }
 
+    public static ArrayList<Student> getStrangers(ArrayList<Student> students, int currentStudentId) {
+        ArrayList<Student> strangers = new ArrayList<>();
+        Student currentStudent = students.get(currentStudentId-1);
+        for (Student student : students) {
+            if (!student.isFriendWith(currentStudent)) {
+                if (!student.equals(currentStudent)) {
+                    strangers.add(student);
+                }
+            }
+        }
+        return strangers;
+    }
+
     public static ArrayList<Student> getFriends(ArrayList<Student> students, Student currentStudent) {
         ArrayList<Student> friends = new ArrayList<>();
         for (Student student : students) {

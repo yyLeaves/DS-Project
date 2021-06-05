@@ -35,7 +35,7 @@ public class E1Teaching {
         boolean success = Math.random()*100 < students.get(currentStudent-1).getDive();
 //        System.out.println(students.get(currentStudent).getDive());
         int diveOfStudentToHelp = studentToHelp.getDive();
-        String returnStr = diveOfStudentToHelp+" needs your help!\n";
+        String returnStr = "Student " + studentToHelp.getId()+" needs your help!\n";
         if(success) {
 //            System.out.printf("Congratulations! You helped %d solved the problem!, Your rep to him increases by 10, " +
 //                    "his reputation to you increases by %d\n",studentToHelp.getId(),diveOfStudentToHelp*10/100);

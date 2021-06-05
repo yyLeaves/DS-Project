@@ -100,8 +100,8 @@ public class E6Friendship {
     // Tester
     public static void main(String[] args) {
 //         callE6();
-        int amount = 3;
-        int[][] v = new int[][]{{1,3},{2,3},{1,2}};
+        int amount = 4;
+        int[][] v = new int[][]{{1,3},{2,3},{1,2},{3,4}};
         callE6(amount,v);
 
 
