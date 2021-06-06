@@ -1,6 +1,6 @@
 # <center>Data Structure Assignment</center>
 
-# 20/05/2021 First Meeting
+## 20/05/2021 First Meeting
 - Discuss about the project
 - Discuss about the implementation of Student and their Relationships
 - Discuss about the graph database Neo4j
@@ -10,7 +10,7 @@
   - Liu, Cheong -> event 1, 2, 5, neo4j db
 - Discuss the time for next meeting - 27/05/2021
 
-# 28/05/2021 Second Meeting
+## 28/05/2021 Second Meeting
 - Update on each others' progress
 - Discuss about extra features to implement
 - Abandon the use of neo4j
@@ -20,12 +20,12 @@
   + toh & niu：3，4，6（Week 12一定要弄好）+ six degree（不是Week 12）
 - Discuss the time for next meeting - 28/05/2021
 
-# 04/06/2021 Third Meeting
+## 04/06/2021 Third Meeting
 - Discuss the difficultis in event 5&6
 - Discuss the time for next meeting - 05/06/2021
 
 
-# 05/06/2021 Fourth Meeting
+## 05/06/2021 Fourth Meeting
 
 # Handbook
 
