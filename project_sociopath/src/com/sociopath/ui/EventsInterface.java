@@ -127,7 +127,6 @@ public class EventsInterface extends JFrame {
 
 
         // left panel
-
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("Events");
         DefaultMutableTreeNode stats = new DefaultMutableTreeNode("Statistics");
         // teach, chit chat, friendship
@@ -157,14 +156,12 @@ public class EventsInterface extends JFrame {
 //                    pane.setRightComponent(new EventPanel());
                     pane.setDividerLocation(150);
                 } else if (event1.equals(lastPathComponent)) {
-//                    pane.setRightComponent(new JLabel("To be implemented 1"));
                     pane.setRightComponent(new BoxFriend(students,Student.getCurrentStudentId()));
                     pane.setDividerLocation(150);
                 } /*else if (event2.equals(lastPathComponent)) {
                     pane.setRightComponent(new JLabel("wt"));
                     pane.setDividerLocation(150);
                 }*/ else if (libEvent.equals(lastPathComponent)) {
-//                    pane.setRightComponent(new JLabel("lib"));
                     pane.setRightComponent(new BoxLib());
                     pane.setDividerLocation(150);
                 }
@@ -172,7 +169,7 @@ public class EventsInterface extends JFrame {
             }
         });
         pane.setLeftComponent(tree);
-        pane.getLeftComponent().setBackground(new Color(0xE8F5E6));
+        pane.getLeftComponent().setBackground(new Color(0xB5CCEE));
 
         pane.setRightComponent(new PanelIntroduction());
 

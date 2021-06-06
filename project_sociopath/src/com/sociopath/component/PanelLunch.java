@@ -2,6 +2,7 @@ package com.sociopath.component;
 
 import com.sociopath.events.E0Init;
 import com.sociopath.events.E1Teaching;
+import com.sociopath.events.E3Lunch;
 import com.sociopath.events.Student;
 import com.sociopath.util.PathUtils;
 
@@ -37,9 +38,9 @@ public class PanelLunch extends JPanel {
         bg_Panel.setBackground(Color.WHITE);
         bg_Panel.setPreferredSize(new Dimension(850,900));
 
-        JButton teachButton = new JButton("I wanna teach a stranger");
+        JButton teachButton = new JButton("How many reputations can I earn by having lunch?");
         teachButton.setPreferredSize(new Dimension(400,50));
-        teachButton.setBackground(new Color(0xF5E2ED));
+        teachButton.setBackground(new Color(0xF1EACA));
 
 
         add(teachButton,BorderLayout.NORTH);
@@ -50,18 +51,16 @@ public class PanelLunch extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("== Your Road to Glory ==");
-                E1Teaching teach = new E1Teaching(students);
-                String s;
 
-                Student student = teach.randomStrangerToHelp(currentStudent);
-                if(student==null) {
-                    s="You have made friends with everyone! ==";
-                } else {
-                    s = teach.teachAStranger(currentStudent);
-                }
+                E3Lunch lunch = new E3Lunch(students);
+                ArrayList<Student> ans = lunch.receiver(students.get(currentStudent - 1));
+                lunch.findMaxSolution();
+
+                String s = lunch.getLunchList(ans);
+                System.out.println(s);
+
                 System.out.println(""+s);
-                JOptionPane.showMessageDialog(null, s, "TEACHING!", JOptionPane.INFORMATION_MESSAGE);
-
+                JOptionPane.showMessageDialog(null, s, "Your road to glory", JOptionPane.INFORMATION_MESSAGE);
 
             }
         });
@@ -84,7 +83,7 @@ class LunchBgPanel extends JPanel{
     @Override
     protected void paintComponent(Graphics g) {
         try {
-            g.drawImage(ImageIO.read(new File(PathUtils.getPath("teach_bg"))),0,0,getWidth(),getHeight(),null);
+            g.drawImage(ImageIO.read(new File(PathUtils.getPath("lunch_bg"))),0,0,getWidth(),getHeight(),null);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -69,7 +69,8 @@ public class E6Friendship {
         }
     }
 
-    public static void callE6(int amountOfVertices, int[][] vertices) {
+    public static String callE6(int amountOfVertices, int[][] vertices) {
+        String ret = "Output: ";
 //        Scanner x = new Scanner(System.in);
 //        System.out.println("Input:");
 //        int amountOfVertices = x.nextInt();
@@ -83,7 +84,6 @@ public class E6Friendship {
         }
 
 
-        System.out.print("Output: ");
         for (int i=0; i<amountOfVertices;i++){
             for(int n=0; n<amountOfVertices; n++){
                 if(i<n){
@@ -92,17 +92,25 @@ public class E6Friendship {
             }
         }
         sorting();
-        System.out.println(ans.size());
+//        System.out.println(ans.size());
+        ret+=ans.size()+"\n";
         for (int i=0; i<ans.size(); i++){
-            System.out.println(i + 1 + ". " + ans.get(i));
+            ret+=(i + 1 + ". " + ans.get(i)+"\n");
+//            System.out.println(i + 1 + ". " + ans.get(i));
         }
+        return ret;
     }
     // Tester
     public static void main(String[] args) {
 //         callE6();
-        int amount = 4;
-        int[][] v = new int[][]{{1,3},{2,3},{1,2},{3,4}};
-        callE6(amount,v);
+//        int amount = 4;
+//        int[][] v = new int[][]{{1,3},{2,3},{1,2},{3,4}};
+
+//        int amount = 1;
+//        int[][] v = new int[][]{{1,3}};
+        int amount = 3;
+        int[][] v = new int[][]{{1,2},{2,3},{3,4}};
+        System.out.println(callE6(amount, v));
 
 
     }

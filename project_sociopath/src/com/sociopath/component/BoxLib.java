@@ -1,9 +1,13 @@
 package com.sociopath.component;
 
+import com.sociopath.events.E0Init;
+import com.sociopath.events.Student;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * Description:
@@ -15,6 +19,7 @@ public class BoxLib extends Box {
 
     final int WIDTH = 850;
     final int HEIGHT = 600;
+    private ArrayList<Student> students;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame();
@@ -30,6 +35,9 @@ public class BoxLib extends Box {
 
     public BoxLib() {
         super(BoxLayout.Y_AXIS);
+
+        // original student list based on graph given
+        students= E0Init.init();
 
         setBackground(new Color(0xffffff));
 
@@ -51,7 +59,10 @@ public class BoxLib extends Box {
         // button for management
         add(buttonPanel);
 
-        BookCalcPanel calcPanel = new BookCalcPanel();
+        PanelCalcBook calcPanel = new PanelCalcBook();
+
+        // TODO: decide current student here
+        PanelCrush crushPanel = new PanelCrush(students,1);
 
 //        RelationshipPanel relationshipPanel = new RelationshipPanel(students);
 
@@ -60,7 +71,7 @@ public class BoxLib extends Box {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                remove(relationshipPanel);
+                remove(crushPanel);
                 add(calcPanel);
                 repaint();
             }
@@ -72,6 +83,9 @@ public class BoxLib extends Box {
             @Override
             public void actionPerformed(ActionEvent e) {
                 remove(calcPanel);
+                add(crushPanel);
+                calcPanel.validate();
+                validate();
 //                add(relationshipPanel);
 //                relationshipPanel.validate();
                 repaint();

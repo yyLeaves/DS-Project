@@ -65,17 +65,18 @@ public class BoxFriend extends Box {
         // button for management
         add(buttonPanel);
 
-        PanelLunch teachPanel = new PanelLunch(students,currentStudent);
-//        BookCalcPanel calcPanel = new BookCalcPanel();
+        PanelTeaching teachPanel = new PanelTeaching(students,currentStudent);
+        PanelLunch lunchPanel = new PanelLunch(students,currentStudent);
+        PanelFriendship friendshipPanel = new PanelFriendship();
 
-//        RelationshipPanel relationshipPanel = new RelationshipPanel(students);
 
         add(teachPanel);
 
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                remove(relationshipPanel);
+                remove(lunchPanel);
+                remove(friendshipPanel);
                 add(teachPanel);
                 repaint();
             }
@@ -87,6 +88,23 @@ public class BoxFriend extends Box {
             @Override
             public void actionPerformed(ActionEvent e) {
                 remove(teachPanel);
+                remove(friendshipPanel);
+                add(lunchPanel);
+                validate();
+                lunchPanel.validate();
+                repaint();
+
+            }
+        });
+
+        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                remove(teachPanel);
+                remove(lunchPanel);
+                add(friendshipPanel);
+                validate();
+                friendshipPanel.validate();
                 repaint();
 
             }

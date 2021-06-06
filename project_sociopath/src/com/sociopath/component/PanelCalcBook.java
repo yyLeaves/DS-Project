@@ -17,9 +17,9 @@ import java.util.Stack;
  */
 
 
-public class BookCalcPanel extends JPanel {
+public class PanelCalcBook extends JPanel {
     public static void main(String[] args) {
-        myFrame frame = new myFrame();
+        BookCalcFrame frame = new BookCalcFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
@@ -34,7 +34,7 @@ public class BookCalcPanel extends JPanel {
     private JPanel panel3;
     private String clickButton;
 
-    public BookCalcPanel() {
+    public PanelCalcBook() {
 
         books = new Stack<>();
 
@@ -172,10 +172,10 @@ public class BookCalcPanel extends JPanel {
 }
 
 
-class myFrame extends JFrame {
-    public myFrame() {
+class BookCalcFrame extends JFrame {
+    public BookCalcFrame() {
         setTitle("Arrange Calculator");
-        add(new BookCalcPanel());
+        add(new PanelCalcBook());
         pack();
     }
 }
