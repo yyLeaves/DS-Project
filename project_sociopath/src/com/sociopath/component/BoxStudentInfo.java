@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * @author Yeyang Liu, S2000549
  * Created on: 2021/5/26 21:03, in project com.sociopath.component
  */
-public class StudentInfoBox extends Box {
+public class BoxStudentInfo extends Box {
 
     final int WIDTH = 850;
     final int HEIGHT = 600;
@@ -23,7 +23,7 @@ public class StudentInfoBox extends Box {
     private ArrayList<Student> students;
 
 
-    public StudentInfoBox(int axis, ArrayList<Student> students) {
+    public BoxStudentInfo(int axis, ArrayList<Student> students) {
         super(BoxLayout.Y_AXIS);
 
         setBackground(new Color(0xffffff));
@@ -47,9 +47,9 @@ public class StudentInfoBox extends Box {
         // button for management
         add(buttonPanel);
 
-        StatPanel infoTablePanel = new StatPanel(students);
+        PanelStat infoTablePanel = new PanelStat(students);
 
-        RelationshipPanel relationshipPanel = new RelationshipPanel(students);
+        PanelRelationship relationshipPanel = new PanelRelationship(students);
 
         add(infoTablePanel);
 
@@ -82,7 +82,9 @@ public class StudentInfoBox extends Box {
         JFrame frame = new JFrame();
         frame.setBounds(100, 100, 500, 300);
         frame.setBackground(new Color(0xffffff));
-        frame.add(new StudentInfoBox(130, E0Init.init()));
+        frame.add(new BoxStudentInfo(130, E0Init.init()));
+
+        frame.pack();
 
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

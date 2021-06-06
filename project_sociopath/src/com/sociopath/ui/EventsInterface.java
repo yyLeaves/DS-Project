@@ -1,9 +1,6 @@
 package com.sociopath.ui;
 
-import com.sociopath.component.IntroductionPanel;
-import com.sociopath.component.LibPanel;
-import com.sociopath.component.StudentInfoBox;
-import com.sociopath.component.TeachingPanel;
+import com.sociopath.component.*;
 import com.sociopath.events.E0Init;
 import com.sociopath.events.Student;
 import com.sociopath.util.PathUtils;
@@ -24,15 +21,13 @@ import java.util.ArrayList;
 /**
  * Description:
  *
- * @author Yeyang Liu, S2000549
- * Created on: 2021/5/13 17:10, in project com.sociopath.ui
  */
 public class EventsInterface extends JFrame {
 
     final int WIDTH = 1000;
     final int HEIGHT = 600;
 
-//    private static String userName = "Student";
+//    private String userName = "Student";
     private ArrayList<Student> students = null;
 
     public EventsInterface(ArrayList<Student>students, Integer id) {
@@ -45,24 +40,6 @@ public class EventsInterface extends JFrame {
         this.students = Student.getStudents();
         System.out.println(" "+Student.getCurrentStudentId());
     }
-
-/*
-    public EventsInterface(String title) {
-        super(title);
-        userName = title;
-    }
-
-    public EventsInterface(String title, ArrayList<Student> students) {
-        super(title);
-        userName = title;
-        this.students = students;
-    }
-
-    public EventsInterface(ArrayList<Student> students) {
-        userName = ""+Student.getCurrentStudentId();
-        this.students = students;
-    }
-*/
 
     public void initStudents() {
         students = E0Init.init();
@@ -153,13 +130,14 @@ public class EventsInterface extends JFrame {
 
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("Events");
         DefaultMutableTreeNode stats = new DefaultMutableTreeNode("Statistics");
-        DefaultMutableTreeNode event1 = new DefaultMutableTreeNode("Teach Stranger & Chit Chat");
-        DefaultMutableTreeNode event2 = new DefaultMutableTreeNode("???");
+        // teach, chit chat, friendship
+        DefaultMutableTreeNode event1 = new DefaultMutableTreeNode("Friends");
+//        DefaultMutableTreeNode event2 = new DefaultMutableTreeNode("???");
         DefaultMutableTreeNode libEvent = new DefaultMutableTreeNode("Library");
         root.add(stats);
         root.add(stats);
         root.add(event1);
-        root.add(event2);
+//        root.add(event2);
         root.add(libEvent);
 
         JTree tree = new JTree(root);
@@ -169,25 +147,25 @@ public class EventsInterface extends JFrame {
             public void valueChanged(TreeSelectionEvent e) {
                 Object lastPathComponent = e.getNewLeadSelectionPath().getLastPathComponent();
                 if (root.equals(lastPathComponent)) {
-                    pane.setRightComponent(new IntroductionPanel());
+                    pane.setRightComponent(new PanelIntroduction());
                     pane.setDividerLocation(150);
 //                    pane.setRightComponent(new EventPanel());
                 } else if (stats.equals(lastPathComponent)) {
                     // TODO: 2021/5/27 Debug
-                    pane.setRightComponent(new StudentInfoBox(20,students));
+                    pane.setRightComponent(new BoxStudentInfo(20,students));
 //                    pane.setBackground(new Color(0x7979F1));
 //                    pane.setRightComponent(new EventPanel());
                     pane.setDividerLocation(150);
                 } else if (event1.equals(lastPathComponent)) {
 //                    pane.setRightComponent(new JLabel("To be implemented 1"));
-                    pane.setRightComponent(new TeachingPanel(students,/*currentStudent*/Student.getCurrentStudentId()));
+                    pane.setRightComponent(new BoxFriend(students,Student.getCurrentStudentId()));
                     pane.setDividerLocation(150);
-                } else if (event2.equals(lastPathComponent)) {
+                } /*else if (event2.equals(lastPathComponent)) {
                     pane.setRightComponent(new JLabel("wt"));
                     pane.setDividerLocation(150);
-                } else if (libEvent.equals(lastPathComponent)) {
+                }*/ else if (libEvent.equals(lastPathComponent)) {
 //                    pane.setRightComponent(new JLabel("lib"));
-                    pane.setRightComponent(new LibPanel());
+                    pane.setRightComponent(new BoxLib());
                     pane.setDividerLocation(150);
                 }
 
@@ -196,7 +174,7 @@ public class EventsInterface extends JFrame {
         pane.setLeftComponent(tree);
         pane.getLeftComponent().setBackground(new Color(0xE8F5E6));
 
-        pane.setRightComponent(new IntroductionPanel());
+        pane.setRightComponent(new PanelIntroduction());
 
 
         add(pane);

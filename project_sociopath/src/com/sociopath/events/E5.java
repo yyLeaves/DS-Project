@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 public class E5 {
 
-    private ArrayList<Student> students;
+    final private ArrayList<Student> students;
 
     private ArrayList<Student> newSpreaders;
     private ArrayList<Student> visited;
@@ -77,7 +77,7 @@ public class E5 {
 //        might identify someone connected between these 2 clusters??? there is only 2 cluster, where am I
 //       ###### Here I take it as I'm in the diff cluster from stranger#####
         new E5(E0Init.init(), 1).meetCrush();
-        //call rumorSpreader x crush connection
+        // call rumorSpreader x crush connection
 
     }
 
@@ -164,6 +164,7 @@ public class E5 {
 
     }
 
+    // TODO: 2021/6/6
     // bfs for the shortest path distance
     public int distanceToCrush(Student student) {
         List<Student> visitedStudents = new ArrayList<>();
@@ -206,7 +207,7 @@ public class E5 {
         }
 
         // remove those spreaders that have spread the rumor from newSpreader list
-        // replace newSpreaders
+        // replace with newSpreaders
         newSpreaders = spreadTo;
 
         if(newSpreaders.contains(crushStudent)) {
@@ -221,59 +222,7 @@ public class E5 {
         }
     }
 
-/*
-    //printing out the paths from rumor spreader to crush
-    public static void connection(ArrayList<Student> students, Student rumorSpreader, Student crush) {
 
-        int size = students.size();
-        boolean[] isVisited = new boolean[size];
-        ArrayList<Student> path = new ArrayList<>();
-        int path_index = 0;
-        printConnection(students, rumorSpreader, crush, isVisited, path);
-
-    }
-
-    public static void printConnection(ArrayList<Student> students, Student rumorSpreader, Student crush, boolean[] isVisited, ArrayList<Student> path) {
-        if (isVisited[rumorSpreader.getId()] == true) {
-            path.add(rumorSpreader);
-        }
-
-        if (rumorSpreader == crush) {
-            for (int i = 0; i < path.size(); i++) {
-                System.out.println(path.get(i));
-            }
-        } */
- /*else {
-            for (int i : students.get(sourceNode))
-                if (!isVisited[i])
-                    printConnection(students, rumorSpreader, crush, isVisited, path);
-        }
-
-        path.remove(path.size() - 1);
-        isVisited[sourceNode] = false;*//*
-
-    }
-*/
-
-
-    //list of student in different cluster
-/*    public static int rumorSpreader() {
-        int[] cluster1 = new int[]{1, 2, 3, 5, 6, 7};
-        int[] cluster2 = new int[]{4, 8, 9, 10};
-
-        Random r = new Random();
-        if (Student.getCurrentStudentId() == 4 || Student.getCurrentStudentId() == 8 ||
-                Student.getCurrentStudentId() == 9 || Student.getCurrentStudentId() == 10) {
-
-            int index = r.nextInt(cluster1.length);
-            int rumor = cluster1[index];
-            return rumor;
-        } else {
-            int index = r.nextInt(cluster2.length);
-            int rumor = cluster2[index];
-            return rumor;
-        }
-    }*/
 
     public ArrayList<Student> getStudents() {
         return students;

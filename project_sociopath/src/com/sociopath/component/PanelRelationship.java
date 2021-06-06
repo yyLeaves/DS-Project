@@ -15,11 +15,11 @@ import java.util.ArrayList;
  * @author Yeyang Liu, S2000549
  * Created on: 2021/5/27 19:35, in project com.sociopath.component
  */
-public class RelationshipPanel extends JPanel{
+public class PanelRelationship extends JPanel{
     private DefaultTableModel model;
     private ArrayList<Student> students = null;
 
-    public RelationshipPanel(ArrayList<Student> students) {
+    public PanelRelationship(ArrayList<Student> students) {
         super(new BorderLayout());
         this.students = students;
         int size = students.size();
@@ -43,7 +43,7 @@ public class RelationshipPanel extends JPanel{
 
         RelationTable relationTable = new RelationTable(model);
 
-        relationTable.setRowHeight(30);
+        relationTable.setRowHeight(40);
 
         add(relationTable.getTableHeader(), BorderLayout.NORTH);
 
@@ -55,7 +55,7 @@ public class RelationshipPanel extends JPanel{
         JFrame jf = new JFrame("Test");
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        jf.setContentPane(new RelationshipPanel(E0Init.init()));
+        jf.setContentPane(new PanelRelationship(E0Init.init()));
         jf.pack();
         jf.setLocationRelativeTo(null);
         jf.setVisible(true);

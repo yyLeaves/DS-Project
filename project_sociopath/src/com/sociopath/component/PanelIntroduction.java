@@ -14,9 +14,9 @@ import java.io.IOException;
  * @author Yeyang Liu, S2000549
  * Created on: 2021/5/27 21:45, in project com.sociopath.component
  */
-public class IntroductionPanel extends JPanel {
+public class PanelIntroduction extends JPanel {
     private Image image;
-    public IntroductionPanel() {
+    public PanelIntroduction() {
         try {
             // image prefer size 850 * 600
             image = ImageIO.read(new File(PathUtils.getPath("intro_img")));
@@ -35,7 +35,7 @@ public class IntroductionPanel extends JPanel {
         JFrame frame = new JFrame();
 
         frame.setBounds(400,500,1000,600);
-        frame.add(new IntroductionPanel());
+        frame.add(new PanelIntroduction());
 
         frame.setVisible(true);
     }

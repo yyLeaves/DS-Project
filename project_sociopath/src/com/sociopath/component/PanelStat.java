@@ -17,12 +17,12 @@ import java.util.ArrayList;
  * @author Yeyang Liu, S2000549
  * Created on: 2021/5/27 11:55, in project com.sociopath.component
  */
-public class StatPanel extends JPanel {
+public class PanelStat extends JPanel {
     private ArrayList<Student> students = null;
 
     private DefaultTableModel model;
 
-    public StatPanel(ArrayList<Student> students) {
+    public PanelStat(ArrayList<Student> students) {
         super(new BorderLayout());
         this.students = students;
 
@@ -49,7 +49,7 @@ public class StatPanel extends JPanel {
 //        InfoTable infoTable = new InfoTable(rowData, columnNames);
 
         // set height of line
-        infoTable.setRowHeight(30);
+        infoTable.setRowHeight(40);
 
         add(infoTable.getTableHeader(), BorderLayout.NORTH);
 
@@ -62,7 +62,7 @@ public class StatPanel extends JPanel {
         JFrame jf = new JFrame("Test");
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        jf.setContentPane(new StatPanel(E0Init.init()));
+        jf.setContentPane(new PanelStat(E0Init.init()));
 //        jf.setSize(850,500);
         jf.pack();
         jf.setLocationRelativeTo(null);

@@ -40,8 +40,8 @@ public class E1Teaching {
 //            System.out.printf("Congratulations! You helped %d solved the problem!, Your rep to him increases by 10, " +
 //                    "his reputation to you increases by %d\n",studentToHelp.getId(),diveOfStudentToHelp*10/100);
             current.makeFriends(studentToHelp,diveOfStudentToHelp*10/100,10);
-            returnStr+=String.format("Congratulations! You helped %d solved the problem!, Your rep to him increases by 10, " +
-                    "his reputation to you increases by %d\n",studentToHelp.getId(),diveOfStudentToHelp*10/100);
+            returnStr+=String.format("Congratulations! You helped %d solved the problem!\nYour rep to him increases by 10\n" +
+                    "His reputation to you increases by %d\n",studentToHelp.getId(),diveOfStudentToHelp*10/100);
             returnStr+=E2ChitChat.chitChat(students,studentToHelp,current);
 
             return returnStr;
@@ -51,8 +51,8 @@ public class E1Teaching {
 //            System.out.printf("Oops, You didn't solve the problem for %d... Your rep to him increases by 2, " +
 //                    "his reputation to you increases by %d\n",studentToHelp.getId(),diveOfStudentToHelp*10/200);
             current.makeFriends(studentToHelp,diveOfStudentToHelp*10/200,2);
-            returnStr+=String.format("Oops, You didn't solve the problem for %d... Your rep to him increases by 2, " +
-                    "his reputation to you increases by %d\n",studentToHelp.getId(),diveOfStudentToHelp*10/200);
+            returnStr+=String.format("Oops, You didn't solve the problem for %d... \nYour rep to him increases by 2" +
+                    "\nhis reputation to you increases by %d\n",studentToHelp.getId(),diveOfStudentToHelp*10/200);
             returnStr+=E2ChitChat.chitChat(students,studentToHelp,current);
             return returnStr;
         }

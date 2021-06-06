@@ -17,8 +17,6 @@ import java.util.ArrayList;
 /**
  * Description:
  *
- * @author Yeyang Liu, S2000549
- * Created on: 2021/5/12 21:58, in project com.sociopath.ui
  */
 public class MainInterface {
 

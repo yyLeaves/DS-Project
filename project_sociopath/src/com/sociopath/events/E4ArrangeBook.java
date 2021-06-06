@@ -5,10 +5,38 @@ import java.util.Scanner;
 public class E4ArrangeBook {
 
     public static void main(String[] args) {
-        System.out.println(new E4ArrangeBook().arrange(5, new int[]{7, 8, 7, 6, 5}));
+        Scanner s = new Scanner(System.in);
+        LinkedList list = new LinkedList(); //create linked list
+        int b, i = 0;
+
+        System.out.print("How many books: ");
+        int numberOfBook = s.nextInt(); //number of book
+
+        s.nextLine();
+        System.out.print("Enter the book height separated by single spaces: ");
+        String str = s.nextLine();
+        String array[] = str.split(" "); //split input into array
+        for (int j = 0; j < numberOfBook; j++) {
+            b = Integer.parseInt(array[j]); //Sting to Int
+            list.insert(b); //add to Linked List
+        }
+
+        while(list.check()){
+            list.rearrange();
+            i++;
+        }
+
+        System.out.println("It needs " + i + "  rounds to meet the librarian’s request.");
+        System.out.print("List after " + i + " rounds: [ ");
+        list.display();
+        System.out.println(" ]");
     }
 
-    public String arrange(int numberOfBook, int[] array) {
+    public void test() {
+        System.out.println(new E4ArrangeBook().arrange(5, new Integer[]{7, 8, 7, 6, 5}));
+    }
+
+    public String arrange(int numberOfBook, Integer[] array) {
 
         LinkedList list = new LinkedList(); //create linked list
         int b, i = 0;
