@@ -1,3 +1,5 @@
+package com.sociopath.events;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,18 +82,13 @@ public class E6Friendship {
         }
         int amount = amountOfVertices;
         amountOfVertices = temp;
-
         E6Friendship g = new E6Friendship(amountOfVertices);
 /*        for (int i=0; i<amount; i++){
             g.addEdge(x.nextInt()-1, x.nextInt()-1);
         }*/
-
         for (int[] vertex : vertices) {
             g.addEdge(vertex[0]-1,vertex[1]-1);
         }
-
-
-
         System.out.print("Output: ");
         for (int i=0; i<amountOfVertices;i++){
             for(int n=0; n<amountOfVertices; n++){
