@@ -3,7 +3,7 @@ package com.sociopath.events;
 import java.util.ArrayList;
 
 /**
- * Description:
+ * Description: Teaching event
  *
  */
 public class E1Teaching {
@@ -28,17 +28,12 @@ public class E1Teaching {
         Student current = students.get(currentStudent-1);
         Student studentToHelp = randomStrangerToHelp(currentStudent);
         if(studentToHelp==null) {
-//            System.out.println("You've made friends with everyone!");
             return "You've made friends with everyone!";
         }
-//        System.out.println(studentToHelp.getId()+" Needs your help!");
         boolean success = Math.random()*100 < students.get(currentStudent-1).getDive();
-//        System.out.println(students.get(currentStudent).getDive());
         int diveOfStudentToHelp = studentToHelp.getDive();
         String returnStr = "Student " + studentToHelp.getId()+" needs your help!\n";
         if(success) {
-//            System.out.printf("Congratulations! You helped %d solved the problem!, Your rep to him increases by 10, " +
-//                    "his reputation to you increases by %d\n",studentToHelp.getId(),diveOfStudentToHelp*10/100);
             current.makeFriends(studentToHelp,diveOfStudentToHelp*10/100,10);
             returnStr+=String.format("Congratulations! You helped %d solved the problem!\nYour rep to him increases by 10\n" +
                     "His reputation to you increases by %d\n",studentToHelp.getId(),diveOfStudentToHelp*10/100);
@@ -48,8 +43,6 @@ public class E1Teaching {
         } else {
             //you will still be friends with him,
             //your rep points relative to that person will be 2 instead
-//            System.out.printf("Oops, You didn't solve the problem for %d... Your rep to him increases by 2, " +
-//                    "his reputation to you increases by %d\n",studentToHelp.getId(),diveOfStudentToHelp*10/200);
             current.makeFriends(studentToHelp,diveOfStudentToHelp*10/200,2);
             returnStr+=String.format("Oops, You didn't solve the problem for %d... \nYour rep to him increases by 2" +
                     "\nhis reputation to you increases by %d\n",studentToHelp.getId(),diveOfStudentToHelp*10/200);

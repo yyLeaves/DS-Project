@@ -27,18 +27,11 @@ public class EventsInterface extends JFrame {
     final int WIDTH = 1000;
     final int HEIGHT = 600;
 
-//    private String userName = "Student";
     private ArrayList<Student> students = null;
 
     public EventsInterface(ArrayList<Student>students, Integer id) {
-        Student.setStudents(students);
-        this.students = Student.getStudents();
+        this.students=students;
         Student.setCurrentStudentId(id);
-    }
-
-    public EventsInterface(Student student) {
-        this.students = Student.getStudents();
-        System.out.println(" "+Student.getCurrentStudentId());
     }
 
     public void initStudents() {
@@ -52,13 +45,8 @@ public class EventsInterface extends JFrame {
     }
 
     public void init() throws IOException {
-        /*if (students == null) {
-            initStudents();
-        }*/
-//        System.out.println(Student.getCurrentStudentId());
         this.setTitle("Hello, Student" + Student.getCurrentStudentId() + "!");
         setBounds(ScreenUtils.getScreenWidth() / 2 - WIDTH / 2, ScreenUtils.getScreenHeight() / 2 - HEIGHT / 2, WIDTH, HEIGHT);
-//        setResizable(true);
         setResizable(false);
         setIconImage(ImageIO.read(new File(PathUtils.getPath("event_icon_image"))));
 

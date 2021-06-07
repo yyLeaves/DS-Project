@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.Map;
 
 /**
- * Description:
+ * Description: This is the Student Class
  */
 public class Student {
     private static int inInc;
@@ -16,11 +16,7 @@ public class Student {
     private int startTimeInMinute;
     private int lunchStart;
     private int lunchPeriod;
-    private static ArrayList<Student> students = null;
     private HashMap<Student, Integer> relationships;
-    // haven't implement yet
-    // TODO: 2021/5/21
-//    private ArrayList<Student> friends;
 
     public HashMap<Student, Integer> getRelationships() {
         return relationships;
@@ -68,7 +64,6 @@ public class Student {
 
     public static Integer getReputation(Student stu1, Student stu2) {
         if (stu1.getRelationships().containsKey(stu2)) {
-//            System.out.println(stu2);
             return stu1.getRelationships().get(stu2);
         }
         return null;
@@ -200,21 +195,10 @@ public class Student {
         return lunchPeriod;
     }
 
-    public static Student getCurrentStudent(ArrayList<Student> students) {
-        return students.get(currentStudentId-1);
-    }
-
     public static int getCurrentStudentId() {
         return currentStudentId;
     }
 
-    public static ArrayList<Student> getStudents() {
-        return students;
-    }
-
-    public static void setStudents(ArrayList<Student> students) {
-        Student.students = students;
-    }
 
     public void setDive(int dive) {
         this.dive = dive;
