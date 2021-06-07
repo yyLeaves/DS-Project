@@ -10,74 +10,60 @@ End time   : 1106 -> 1459
 
 public class E3Lunch {
     private static ArrayList<Student> students;
-
-    public E3Lunch(ArrayList<Student> deStudents){
+    private static Student you;
+    public E3Lunch(ArrayList<Student> deStudents, Student me){
         students = (ArrayList<Student>) deStudents.clone();
+        you = me;
     }
 
-    public ArrayList<Student> findMaxSolution(){
-        ArrayList<Student> ans = new ArrayList<>();
-        int spareTimeChecker = 0; // to avoid get nothing later
-        ascendingByEndTime(students);
-        ans.add(students.get(0));
-        spareTimeChecker = getEndTIme(students.get(0)); // to get the first student's end time. The end time must be the earliest since we have sorted them
-        for(int i = 1; i < students.size(); i++){
-            if (students.get(i).getLunchStart() > spareTimeChecker){
-                ans.add(students.get(i));
-                spareTimeChecker = getEndTIme(students.get(i)); // set a new checker for the for loop
-            }
-        }
-        return ans;
-    }
-
-    // This is the method need to be called
-    public ArrayList<Student> receiver(Student you){
-        students.remove(you);
-        return findMaxSolution();
-    }
 
     // To get the end time of a student's lunch time.
-    public int getEndTIme(Student s){
-        int end = s.getLunchPeriod()+s.getLunchStart();
-        if(s.getLunchPeriod() + Integer.parseInt(String.valueOf(s.getLunchStart()).substring(2)) >= 60){
+    public static int getEndTIme(Student s) {
+        int end = s.getLunchPeriod() + s.getLunchStart();
+        if (s.getLunchPeriod() + Integer.parseInt(String.valueOf(s.getLunchStart()).substring(2)) >= 60) {
             end = end + 40; // to make sure minutes part won't exceed or equal to 60
         }
         return end;
     }
 
     // To return a description on the lunch arrangement
-    public String getLunchList(ArrayList<Student> ans){
+    public static String getLunchList(ArrayList<Student> ans) {
         String temp = "";
-        String temp2= "I can have lunch with Student ";
+        String temp2 = "I can have lunch with Student ";
         for (Student an : ans) {
             temp2 = temp2 + an.getId() + ",";
-            temp = temp + "Student ID:" + an.getId() + "\nLunch Period: " + String.valueOf(an.getLunchStart()).substring(0, String.valueOf(an.getLunchStart()).length()-2) + ":" + String.valueOf(an.getLunchStart()).substring(2) + "-->" + String.valueOf(getEndTIme(an)).substring(0, String.valueOf(getEndTIme(an)).length()-2) + ":" + String.valueOf(getEndTIme(an)).substring(2) + "\n";
+            temp = temp + "Student ID:" + an.getId() + "\nLunch Period: " + String.valueOf(an.getLunchStart()).substring(0, String.valueOf(an.getLunchStart()).length() - 2) + ":" + String.valueOf(an.getLunchStart()).substring(2) + "-->" + String.valueOf(getEndTIme(an)).substring(0, String.valueOf(getEndTIme(an)).length() - 2) + ":" + String.valueOf(getEndTIme(an)).substring(2) + "\n";
         }
-        return "-".repeat(38) + "\n" + temp2.substring(0,temp2.length()-1) + ".\n\n" + temp + "-".repeat(38);
+        return "-".repeat(38) + "\n" + "My lunchtime is " + String.valueOf(you.getLunchStart()).substring(0, String.valueOf(you.getLunchStart()).length() - 2) + ":" + String.valueOf(you.getLunchStart()).substring(2) + "-->" + String.valueOf(getEndTIme(you)).substring(0, String.valueOf(getEndTIme(you)).length() - 2) + ":" + String.valueOf(getEndTIme(you)).substring(2) + "\n" + temp2.substring(0, temp2.length() - 1) + ".\n\n" + temp + "-".repeat(38);
     }
 
     // To sort the end time in ascending order.
-    public void ascendingByEndTime(ArrayList<Student> stu){
-        for (int n=0; n < stu.size()-1; n++) {
+    public static void ascendingByEndTime(ArrayList<Student> stu) {
+        for (int n = 0; n < stu.size() - 1; n++) {
             for (int i = 0; i < stu.size() - 1 - n; i++) {
-                if (getEndTIme(stu.get(i)) > getEndTIme(stu.get(i+1))) {
+                if (getEndTIme(stu.get(i)) > getEndTIme(stu.get(i + 1))) {
                     Student tmp = stu.get(i);
-                    stu.set(i, stu.get(i+1));
-                    stu.set(i+1, tmp);
+                    stu.set(i, stu.get(i + 1));
+                    stu.set(i + 1, tmp);
                 }
             }
         }
-
-// This is to output the ArrayList after sorting for testing purpose.
-//
-/*
-        for (Student s : students){
-            System.out.print(s.getLunchStart() + "/" + getEndTIme(s) + "\n");
-        }
-*/
     }
 
-    // A normal tester
+    // This is the method to find intersection of students
+    public static ArrayList<Student> findMaxSolution(){
+        ascendingByEndTime(students);
+        students.remove(you);
+        ArrayList<Student> ans = new ArrayList<>();
+        for(Student i : students){
+            if (getEndTIme(you) >= i.getLunchStart()){
+               ans.add(i);
+           }
+        }
+        return ans;
+    }
+
+    // Tester
     public static void main(String[] args) {
         ArrayList<Student> s = new ArrayList<>();
 
@@ -100,13 +86,8 @@ public class E3Lunch {
         s.get(7).setLunchStart(1150);
         s.get(7).setLunchPeriod(20);
 
-        E3Lunch e= new E3Lunch(s);
-        ArrayList<Student> ans = e.receiver(s.get(0));
-        //for (Student an : ans) System.out.print(an.getLunchStart() + " ");
-        System.out.println(e.getLunchList(ans));
-
+        E3Lunch e= new E3Lunch(s, s.get(0));
+        System.out.println(getLunchList(findMaxSolution()));;
         Student.printStudents(s);
-
     }
-
 }
