@@ -114,6 +114,7 @@ public class PanelFriendship extends JPanel {
 
             if (clickButton.equals("Calculate")) {
                 String s = calculate();
+                System.out.println(s);
                 JOptionPane.showMessageDialog(null, s, "Friendship", JOptionPane.INFORMATION_MESSAGE);
 
 
