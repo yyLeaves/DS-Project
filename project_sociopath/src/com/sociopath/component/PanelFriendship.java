@@ -168,9 +168,10 @@ public class PanelFriendship extends JPanel {
         int v = friendships.length;
         int[][] friendshipArr = friendships.clone();
         E6Friendship e6 = new E6Friendship(v);
-        String s = E6Friendship.callE6(v, friendshipArr);
-        System.out.println(s);
-        return s;
+//        String s = E6Friendship.callE6(v, friendshipArr);
+//        System.out.println(s);
+//        return s;
+        return null;
     }
 }
 

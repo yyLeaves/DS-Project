@@ -62,20 +62,22 @@ public class PanelRelationship extends JPanel{
     }
 
     private class RelationTable extends JTable{
-        public RelationTable(Object[][] rowData, Object[] columnNames) {
+        // TODO: 2021/6/7
+        // If bug uncomment here
+/*        public RelationTable(Object[][] rowData, Object[] columnNames) {
             super(rowData, columnNames);
             // select one line at a time
             setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
             setSelectionBackground(Color.LIGHT_GRAY);
             setSelectionForeground(Color.BLUE);
 
-        }
+        }*/
 
         public RelationTable(TableModel dm) {
             super(dm);
             setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-            setSelectionBackground(Color.LIGHT_GRAY);
-            setSelectionForeground(Color.BLUE);
+            setSelectionBackground(/*Color.LIGHT_GRAY*/new Color(0xD2F3DD));
+            setSelectionForeground(/*Color.BLUE*/new Color(0x133916));
         }
 
         @Override

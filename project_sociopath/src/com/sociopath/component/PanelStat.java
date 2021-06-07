@@ -70,20 +70,22 @@ public class PanelStat extends JPanel {
     }
 
     private class InfoTable extends JTable {
-        public InfoTable(Object[][] rowData, Object[] columnNames) {
+        // TODO: 2021/6/7
+        // if bug comment here
+/*        public InfoTable(Object[][] rowData, Object[] columnNames) {
             super(rowData, columnNames);
             // select one line at a time
             setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-            setSelectionBackground(Color.LIGHT_GRAY);
-            setSelectionForeground(Color.BLUE);
+            setSelectionBackground(*//*Color.LIGHT_GRAY*//*new Color(0xE3CEFA));
+            setSelectionForeground(*//*Color.BLUE*//*new Color(0x6F2FAD));
 
-        }
+        }*/
 
         public InfoTable(TableModel dm) {
             super(dm);
             setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-            setSelectionBackground(Color.LIGHT_GRAY);
-            setSelectionForeground(Color.BLUE);
+            setSelectionBackground(/*Color.LIGHT_GRAY*/new Color(0xDBD2F3));
+            setSelectionForeground(/*Color.BLUE*/new Color(0x3D3D99));
         }
 
         @Override

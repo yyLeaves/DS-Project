@@ -18,8 +18,6 @@ import java.util.ArrayList;
 /**
  * Description:
  *
- * @author Yeyang Liu, S2000549
- * Created on: 2021/6/6 21:05, in project com.sociopath.component
  */
 public class PanelLunch extends JPanel {
 
@@ -50,17 +48,15 @@ public class PanelLunch extends JPanel {
         teachButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-/*                System.out.println("== Your Road to Glory ==");
+                System.out.println("== Your Road to Glory ==");
 
-                E3Lunch lunch = new E3Lunch(students);
-                ArrayList<Student> ans = lunch.receiver(students.get(currentStudent - 1));
-                lunch.findMaxSolution();
+                E3Lunch lunch = new E3Lunch(students,students.get(currentStudent-1));
 
-                String s = lunch.getLunchList(ans);
+                String s = E3Lunch.getLunchList(E3Lunch.findMaxSolution());
+
                 System.out.println(s);
 
-                System.out.println(""+s);*/
-                JOptionPane.showMessageDialog(null, "Neo is rewriting this", "Your road to glory", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, s, "Your road to glory", JOptionPane.INFORMATION_MESSAGE);
 
             }
         });
