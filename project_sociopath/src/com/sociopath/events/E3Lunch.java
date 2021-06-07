@@ -55,8 +55,12 @@ public class E3Lunch {
         ascendingByEndTime(students);
         students.remove(you);
         ArrayList<Student> ans = new ArrayList<>();
+        int myStart = you.getLunchStart();
+        int myEnd = getEndTIme(you);
         for(Student i : students){
-            if (getEndTIme(you) >= i.getLunchStart()){
+            int otherStart = i.getLunchStart();
+            int otherEnd = getEndTIme(i);
+            if ((myStart>=otherStart&&myStart<=otherEnd) || (myEnd>=otherStart&&myEnd<=otherEnd) || (otherStart<=otherEnd&&otherStart>=myStart&&otherEnd<=myEnd)){
                ans.add(i);
            }
         }
@@ -71,22 +75,23 @@ public class E3Lunch {
             s.add(new Student());
         }
 
-        s.get(0).setLunchStart(1100);
-        s.get(0).setLunchPeriod(20);
+        s.get(0).setLunchStart(1303);
+        s.get(0).setLunchPeriod(9);
 
-        s.get(1).setLunchStart(1110);
-        s.get(1).setLunchPeriod(20);
+        s.get(1).setLunchStart(1106);
+        s.get(1).setLunchPeriod(25);
 
-        s.get(2).setLunchStart(1130);
-        s.get(2).setLunchPeriod(20);
+        s.get(2).setLunchStart(1138);
+        s.get(2).setLunchPeriod(22);
 
-        s.get(3).setLunchStart(1330);
-        s.get(3).setLunchPeriod(20);
+        s.get(3).setLunchStart(1158);
+        s.get(3).setLunchPeriod(1232-1158);
 
-        s.get(7).setLunchStart(1150);
-        s.get(7).setLunchPeriod(20);
+        s.get(7).setLunchStart(1247);
+        s.get(7).setLunchPeriod(1254-1247);
 
         E3Lunch e= new E3Lunch(s, s.get(0));
+        Student.printLunchtime(s);
         System.out.println(getLunchList(findMaxSolution()));;
         Student.printStudents(s);
     }
