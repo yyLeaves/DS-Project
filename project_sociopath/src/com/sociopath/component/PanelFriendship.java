@@ -1,6 +1,5 @@
 package com.sociopath.component;
 
-import com.sociopath.events.E4ArrangeBook;
 import com.sociopath.events.E6Friendship;
 
 import javax.swing.*;
@@ -8,13 +7,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
-import java.util.Stack;
 
 /**
  * Description:
  *
- * @author Yeyang Liu, S2000549
- * Created on: 2021/6/6 22:08, in project com.sociopath.component
  */
 public class PanelFriendship extends JPanel {
     public static void main(String[] args) {
@@ -126,22 +122,60 @@ public class PanelFriendship extends JPanel {
                     int n1 = Integer.parseInt(first.getText());
                     int n2 = Integer.parseInt(second.getText());
 
-                    if (friendships == null || friendships.length == 0) {
-                        friendships = new int[][]{{n1, n2}};
+                    int min = Math.min(n1,n2);
+                    int max = Math.max(n1,n2);
+
+                    if(min==max) {
+                        System.out.println(min+" - "+max+" is invalid friendship!");
+                        first.setText("");
+                        second.setText("");
+                        AND.setText("");
                     } else {
-                        friendships = Arrays.copyOf(friendships, friendships.length + 1);
-                        {
+
+                        if (friendships == null || friendships.length == 0) {
+                            friendships = new int[][]{{min, max}};
+
+                            System.out.println("Add new friendship: " + min + " - " + max);
+                            first.setText("");
+                            second.setText("");
+                            AND.setText("");
                             result.setText(Arrays.deepToString(friendships));
-                            friendships[friendships.length - 1] = new int[]{n1, n2};
-                            friendships[friendships.length - 1][0] = n1;
-                            friendships[friendships.length - 1][1] = n2;
+
+                        } else {
+                            boolean exist = false;
+                            for (int[] friendship : friendships) {
+                                if(min==friendship[0]&&max==friendship[1])
+                                {
+                                    exist = true;
+                                }
+                            }
+
+                            if(!exist) {
+                                friendships = Arrays.copyOf(friendships, friendships.length + 1);
+                                {
+                                    result.setText(Arrays.deepToString(friendships));
+                                    friendships[friendships.length - 1] = new int[]{min, max};
+//                                friendships[friendships.length - 1][0] = min;
+//                                friendships[friendships.length - 1][1] = max;
+                                }
+
+                                System.out.println("Add new friendship: " + min + " - " + max);
+                                first.setText("");
+                                second.setText("");
+                                AND.setText("");
+                                result.setText(Arrays.deepToString(friendships));
+
+                            } else {
+                                first.setText("");
+                                second.setText("");
+                                AND.setText("");
+                                System.out.println("Friendship "+min+" - "+max+" already exists!");
+                            }
+
+
                         }
+
                     }
-                    System.out.println("Add new friendship: " + n1 + " - " + n2);
-                    first.setText("");
-                    second.setText("");
-                    AND.setText("");
-                    result.setText(Arrays.deepToString(friendships));
                 }
             } else if (clickButton.equals("Clear")) {
                 first.setText("");
@@ -167,11 +201,8 @@ public class PanelFriendship extends JPanel {
     public String calculate() {
         int v = friendships.length;
         int[][] friendshipArr = friendships.clone();
-        E6Friendship e6 = new E6Friendship(v);
-//        String s = E6Friendship.callE6(v, friendshipArr);
-//        System.out.println(s);
-//        return s;
-        return null;
+        String s = E6Friendship.callE6(friendships);
+        return s;
     }
 }
 
