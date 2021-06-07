@@ -144,11 +144,13 @@ public class Student {
         }
     }
 
-/*    public static void printLunchtime(ArrayList<Student> students) {
+    //TODO: format like this
+    // Student 1: 11:16-->11:25
+    public static void printLunchtime(ArrayList<Student> students) {
         for (Student student : students) {
             System.out.println("Start: " + student.lunchStart);
         }
-    }*/
+    }
 
     @Override
     public String toString() {
