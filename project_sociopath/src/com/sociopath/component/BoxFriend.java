@@ -58,9 +58,13 @@ public class BoxFriend extends Box {
         JButton button3 = new JButton("Friendship");
         button3.setBackground(new Color(0xF6F8E0));
 
+        JButton button4 = new JButton("Update LunchTime");
+        button4.setBackground(new Color(0xF3E3E3));
+
         buttonPanel.add(button1);
         buttonPanel.add(button2);
         buttonPanel.add(button3);
+        buttonPanel.add(button4);
 
         // button for management
         add(buttonPanel);
@@ -107,6 +111,15 @@ public class BoxFriend extends Box {
                 friendshipPanel.validate();
                 repaint();
 
+            }
+        });
+
+        button4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Student.updateLunchtime(students);
+                System.out.println("== Update Lunchtime ==");
+                Student.printStudents(students);
             }
         });
 

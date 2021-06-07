@@ -41,8 +41,11 @@ public class BoxStudentInfo extends Box {
         JButton button2 = new JButton("Relationship");
         button2.setBackground(new Color(0xE1D7F6));
 
+//        JButton button3 = new JButton("Update Lunchtime");
+
         buttonPanel.add(button1);
         buttonPanel.add(button2);
+//        buttonPanel.add(button3);
 
         // button for management
         add(buttonPanel);
@@ -75,7 +78,19 @@ public class BoxStudentInfo extends Box {
             }
         });
 
+/*        button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Student.updateLunchtime(students);
+                remove(relationshipPanel);
+                add(relationshipPanel);
+                System.out.println(students);
+            }
+        });*/
+
     }
+
+
 
 
     public static void main(String[] args) {

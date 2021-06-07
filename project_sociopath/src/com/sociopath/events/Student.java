@@ -134,6 +134,22 @@ public class Student {
         return friends;
     }
 
+    public static void updateLunchtime(ArrayList<Student> students) {
+        for (Student student : students) {
+            student.lunchPeriod = (int) (Math.random() * 54 + 6);
+            // 0 <= startTimeInMinute <= 180-lunchPeriod || [0,180-lunchPeriod]
+            student.startTimeInMinute = (int) (Math.random() * (181 - student.lunchPeriod));
+            // 1100 <= lunchStart <=1400
+            student.lunchStart = student.startTimeInMinute / 60 * 100 + student.startTimeInMinute % 60 + 1100;
+        }
+    }
+
+/*    public static void printLunchtime(ArrayList<Student> students) {
+        for (Student student : students) {
+            System.out.println("Start: " + student.lunchStart);
+        }
+    }*/
+
     @Override
     public String toString() {
         StringBuilder ret = new StringBuilder();
