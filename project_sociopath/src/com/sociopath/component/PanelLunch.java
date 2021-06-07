@@ -50,7 +50,7 @@ public class PanelLunch extends JPanel {
         teachButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("== Your Road to Glory ==");
+/*                System.out.println("== Your Road to Glory ==");
 
                 E3Lunch lunch = new E3Lunch(students);
                 ArrayList<Student> ans = lunch.receiver(students.get(currentStudent - 1));
@@ -59,8 +59,8 @@ public class PanelLunch extends JPanel {
                 String s = lunch.getLunchList(ans);
                 System.out.println(s);
 
-                System.out.println(""+s);
-                JOptionPane.showMessageDialog(null, s, "Your road to glory", JOptionPane.INFORMATION_MESSAGE);
+                System.out.println(""+s);*/
+                JOptionPane.showMessageDialog(null, "Neo is rewriting this", "Your road to glory", JOptionPane.INFORMATION_MESSAGE);
 
             }
         });

@@ -274,5 +274,7 @@ public class Student {
         students[8].makeFriends(students[9], 5, 6);
         Student.printStudents(students);
         System.out.println(students[1].isFriendWith(students[2]));
+
+        Student.printLunchtime(E0Init.init());
     }
 }

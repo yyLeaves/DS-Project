@@ -117,9 +117,14 @@ public class BoxFriend extends Box {
         button4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Student.updateLunchtime(students);
                 System.out.println("== Update Lunchtime ==");
-                Student.printStudents(students);
+
+                System.out.println("* Old Lunchtime *");
+                Student.printLunchtime(students);
+
+                Student.updateLunchtime(students);
+                System.out.println("* New Lunchtime *");
+                Student.printLunchtime(students);
             }
         });
 

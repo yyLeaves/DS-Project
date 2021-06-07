@@ -146,7 +146,7 @@ public class PanelCalcBook extends JPanel {
                     Integer pop = books.pop();
                     display.setText("");
                     result.setText(Arrays.toString(books.toArray()));
-                    System.out.println("Pop out book " + (1 + books.size()) + ": " + pop);
+                    System.out.println("Pop book " + (1 + books.size()) + ": " + pop);
 
                 } else {
                     System.out.println("Currently no book can be popped out!");
