@@ -144,12 +144,24 @@ public class Student {
         }
     }
 
-    //TODO: format like this
-    // Student 1: 11:16-->11:25
-    public static void printLunchtime(ArrayList<Student> students) {
-        for (Student student : students) {
-            System.out.println("Start: " + student.lunchStart);
+    public static void printLunchtime(ArrayList<Student> students){
+        StringBuilder temp = new StringBuilder();
+        for (Student an : students) {
+            temp.append("Student ").append(an.getId()).append(": ").append(String.valueOf(an.getLunchStart()).substring
+                    (0, String.valueOf(an.getLunchStart()).length() - 2)).append(":").append(
+                    String.valueOf(an.getLunchStart()).substring(2)).append("-->").append(String.valueOf(
+                    getEndTIme(an)).substring(0, String.valueOf(getEndTIme(an)).length() - 2))
+                    .append(":").append(String.valueOf(getEndTIme(an)).substring(2)).append("\n");
         }
+        System.out.println(temp);
+    }
+
+    public static int getEndTIme(Student s) {
+        int end = s.getLunchPeriod() + s.getLunchStart();
+        if (s.getLunchPeriod() + Integer.parseInt(String.valueOf(s.getLunchStart()).substring(2)) >= 60) {
+            end = end + 40; // to make sure minutes part won't exceed or equal to 60
+        }
+        return end;
     }
 
     @Override
@@ -261,7 +273,6 @@ public class Student {
         students[3].makeFriends(students[9], 7, 7);
         students[8].makeFriends(students[9], 5, 6);
         Student.printStudents(students);
-
         System.out.println(students[1].isFriendWith(students[2]));
     }
 }
