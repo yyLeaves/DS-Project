@@ -68,7 +68,7 @@ public class E6Friendship {
         }
     }
 
-    public static void callE6(int amountOfVertices, int[][] vertices) {
+    public static void callE6(int[][] vertices) {
 //        Scanner x = new Scanner(System.in);
 //        System.out.println("Input:");
 //        int amountOfVertices = x.nextInt();
@@ -80,9 +80,7 @@ public class E6Friendship {
                 }
             }
         }
-        int amount = amountOfVertices;
-        amountOfVertices = temp;
-        E6Friendship g = new E6Friendship(amountOfVertices);
+        E6Friendship g = new E6Friendship(temp);
 /*        for (int i=0; i<amount; i++){
             g.addEdge(x.nextInt()-1, x.nextInt()-1);
         }*/
@@ -90,8 +88,8 @@ public class E6Friendship {
             g.addEdge(vertex[0]-1,vertex[1]-1);
         }
         System.out.print("Output: ");
-        for (int i=0; i<amountOfVertices;i++){
-            for(int n=0; n<amountOfVertices; n++){
+        for (int i=0; i<temp;i++){
+            for(int n=0; n<temp; n++){
                 if(i<n){
                     g.findPathList(i, n);
                 }
@@ -108,6 +106,6 @@ public class E6Friendship {
 //         callE6();
         int amount = 4;
         int[][] v = new int[][]{{2,1},{2,3},{3,4}};
-        callE6(amount,v);
+        callE6(v);
     }
 }
