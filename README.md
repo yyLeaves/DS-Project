@@ -26,6 +26,11 @@
 
 
 ## 05/06/2021 Fourth Meeting
+- Discuss about the reports
+- Assign work of reports to everyone
+
+## 05/06/2021 Fourth Meeting
+- Test and debug
 
 # Handbook
 
