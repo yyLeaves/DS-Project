@@ -58,19 +58,19 @@
 ### E3 Lunch:
 + **How to use?**
   ```java
-  E3Lunch VARIABLE1= new E3Lunch(YOUR STUDENT ARRAYLIST HERE); // constructor
-  ArrayList<Student> VARIABLE2 = VARIABLE1.receiver(STUDENT OBJECT YOU); // functional method
-  System.out.println(VARIABLE1.getLunchList(VARIABLE2)); // printer
+  E3Lunch e= new E3Lunch(STUDENT ARRAYLIST, YOU); // constructor
+  System.out.println(getLunchList(findMaxSolution())); // output
   ```
   Sample Output:
   ```
   --------------------------------------
-  I can have lunch with Student 4,3.
+  My lunchtime is 11:00-->11:20
+  I can have lunch with Student 2,5.
 
-  Student ID:4
-  Lunch Period: 11:35-->12:09
-  Student ID:3
-  Lunch Period: 12:28-->13:00
+  Student ID:2
+  Lunch Period: 11:10-->11:30
+  Student ID:5
+  Lunch Period: 11:19-->12:15
   --------------------------------------
   ```
 + **How to test?**<br>
