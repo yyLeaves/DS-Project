@@ -69,9 +69,7 @@ public class E3Lunch {
 
     // Tester
     public static void main(String[] args) {
-        ArrayList<Student> s = new ArrayList<>();
-
-        for (int i = 0; i < 9; i++) {
+/*        for (int i = 0; i < 9; i++) {
             s.add(new Student());
         }
 
@@ -93,6 +91,14 @@ public class E3Lunch {
         E3Lunch e= new E3Lunch(s, s.get(0));
         Student.printLunchtime(s);
         System.out.println(getLunchList(findMaxSolution()));;
-        Student.printStudents(s);
+        Student.printStudents(s);*/
+        ArrayList<Student> s = E0Init.init();
+
+        s.get(0).setLunchPeriod(0);
+        s.get(0).setLunchStart(1100);
+        Student.printLunchtime(s);
+        E3Lunch e= new E3Lunch(s, s.get(0));
+        System.out.println(getLunchList(findMaxSolution()));
+        Student.printLunchtime(students);
     }
 }
