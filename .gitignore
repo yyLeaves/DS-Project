@@ -28,3 +28,4 @@ out/
 /neo4j.properties
 .idea/
 # *.iml
+/project_sociopath/src/Graph/
