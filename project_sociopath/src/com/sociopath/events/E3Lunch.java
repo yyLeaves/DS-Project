@@ -29,7 +29,12 @@ public class E3Lunch {
     // To return a description on the lunch arrangement
     public static String getLunchList(ArrayList<Student> ans) {
         String temp = "";
-        String temp2 = "I can have lunch with Student ";
+        String temp2 = "";
+        if(ans.size()==0){
+            temp2 = "I can have lunch with nobody, what a pity..";
+        }else {
+            temp2 = "I can have lunch with Student ";
+        }
         for (Student an : ans) {
             temp2 = temp2 + an.getId() + ",";
             temp = temp + "Student ID:" + an.getId() + "\nLunch Period: " + String.valueOf(an.getLunchStart()).substring(0, String.valueOf(an.getLunchStart()).length() - 2) + ":" + String.valueOf(an.getLunchStart()).substring(2) + "-->" + String.valueOf(getEndTIme(an)).substring(0, String.valueOf(getEndTIme(an)).length() - 2) + ":" + String.valueOf(getEndTIme(an)).substring(2) + "\n";
