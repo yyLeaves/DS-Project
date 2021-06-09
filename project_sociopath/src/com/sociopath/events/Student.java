@@ -108,7 +108,7 @@ public class Student {
 
     public static ArrayList<Student> getStrangers(ArrayList<Student> students, int currentStudentId) {
         ArrayList<Student> strangers = new ArrayList<>();
-        Student currentStudent = students.get(currentStudentId-1);
+        Student currentStudent = students.get(currentStudentId - 1);
         for (Student student : students) {
             if (!student.isFriendWith(currentStudent)) {
                 if (!student.equals(currentStudent)) {
@@ -117,6 +117,20 @@ public class Student {
             }
         }
         return strangers;
+    }
+
+    public static void incRep(Student student1, Student student2, int n1, int n2) {
+        if (student1.getRelationships().containsKey(student2)) {
+            student1.getRelationships().put(student1, student1.getRelationships().get(student2) + n1);
+        } else {
+            student1.getRelationships().put(student1, n1);
+        }
+
+        if (student2.getRelationships().containsKey(student1)) {
+            student2.getRelationships().put(student2, student2.getRelationships().get(student1) + n2);
+        } else {
+            student2.getRelationships().put(student2, n2);
+        }
     }
 
     public static ArrayList<Student> getFriends(ArrayList<Student> students, Student currentStudent) {
@@ -139,7 +153,7 @@ public class Student {
         }
     }
 
-    public static void printLunchtime(ArrayList<Student> students){
+    public static void printLunchtime(ArrayList<Student> students) {
         StringBuilder temp = new StringBuilder();
         for (Student an : students) {
             temp.append("Student ").append(an.getId()).append(": ").append(String.valueOf(an.getLunchStart()).substring
