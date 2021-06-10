@@ -121,15 +121,15 @@ public class Student {
 
     public static void incRep(Student student1, Student student2, int n1, int n2) {
         if (student1.getRelationships().containsKey(student2)) {
-            student1.getRelationships().put(student1, student1.getRelationships().get(student2) + n1);
+            student1.getRelationships().put(student2, student1.getRelationships().get(student2) + n1);
         } else {
-            student1.getRelationships().put(student1, n1);
+            student1.getRelationships().put(student2, n1);
         }
 
         if (student2.getRelationships().containsKey(student1)) {
-            student2.getRelationships().put(student2, student2.getRelationships().get(student1) + n2);
+            student2.getRelationships().put(student1, student2.getRelationships().get(student1) + n2);
         } else {
-            student2.getRelationships().put(student2, n2);
+            student2.getRelationships().put(student1, n2);
         }
     }
 
