@@ -36,6 +36,7 @@ public class E3Lunch {
             temp2 = "I can have lunch with Student ";
         }
         for (Student an : ans) {
+            Student.incRep(you, an, 1, 1);
             temp2 = temp2 + an.getId() + ",";
             temp = temp + "Student ID:" + an.getId() + "\nLunch Period: " + String.valueOf(an.getLunchStart()).substring(0, String.valueOf(an.getLunchStart()).length() - 2) + ":" + String.valueOf(an.getLunchStart()).substring(2) + "-->" + String.valueOf(getEndTIme(an)).substring(0, String.valueOf(getEndTIme(an)).length() - 2) + ":" + String.valueOf(getEndTIme(an)).substring(2) + "\n";
         }
