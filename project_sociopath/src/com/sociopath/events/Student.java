@@ -244,10 +244,6 @@ public class Student {
         this.lunchPeriod = lunchPeriod;
     }
 
-    public static void setInInc(int inInc) {
-        Student.inInc = inInc;
-    }
-
     public static void setCurrentStudentId(int currentStudentId) {
         if (currentStudentId > 0 && currentStudentId <= 10) {
             Student.currentStudentId = currentStudentId;
