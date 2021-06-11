@@ -10,10 +10,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
- * Description:
+ * Description: Student Info Box
  *
- * @author Yeyang Liu, S2000549
- * Created on: 2021/5/26 21:03, in project com.sociopath.component
  */
 public class BoxStudentInfo extends Box {
 
@@ -36,16 +34,14 @@ public class BoxStudentInfo extends Box {
         buttonPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 
         JButton button1 = new JButton("General Statistics");
-        button1.setBackground(new Color(0xE3F8F5));
+        button1.setBackground(new Color(0xE1D7F6));
 
         JButton button2 = new JButton("Relationship");
-        button2.setBackground(new Color(0xE1D7F6));
+        button2.setBackground(new Color(0xE3F8F5));
 
-//        JButton button3 = new JButton("Update Lunchtime");
 
         buttonPanel.add(button1);
         buttonPanel.add(button2);
-//        buttonPanel.add(button3);
 
         // button for management
         add(buttonPanel);
@@ -77,16 +73,6 @@ public class BoxStudentInfo extends Box {
 
             }
         });
-
-/*        button3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Student.updateLunchtime(students);
-                remove(relationshipPanel);
-                add(relationshipPanel);
-                System.out.println(students);
-            }
-        });*/
 
     }
 

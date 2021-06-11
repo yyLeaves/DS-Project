@@ -9,10 +9,8 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Description:
+ * Description: Intro Panel
  *
- * @author Yeyang Liu, S2000549
- * Created on: 2021/5/27 21:45, in project com.sociopath.component
  */
 public class PanelIntroduction extends JPanel {
     private Image image;

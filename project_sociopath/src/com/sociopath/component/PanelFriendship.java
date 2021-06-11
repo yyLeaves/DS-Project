@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import java.util.Arrays;
 
 /**
- * Description:
+ * Description: Friendship Panel
  *
  */
 public class PanelFriendship extends JPanel {
@@ -26,9 +26,8 @@ public class PanelFriendship extends JPanel {
     private JTextField first;
     private JTextField second;
     private JTextField AND;
-    private JPanel panel1;
-    private JPanel panel2;
-    private JPanel panel3;
+    private JPanel panel;
+
     private String clickButton;
 
     public PanelFriendship() {
@@ -36,18 +35,16 @@ public class PanelFriendship extends JPanel {
 
         setLayout(new BorderLayout());
 
-        //把文本框加在上面north里
         result = new JTextField("");
 
         result.setEditable(false);
-
 
         //listener
         ActionListener command = new commandAction();
 
         //panel1 numbers
-        panel1 = new JPanel();
-        panel1.setLayout(new GridLayout(6, 3));
+        panel = new JPanel();
+        panel.setLayout(new GridLayout(6, 3));
 
         first = new JTextField("", JLabel.CENTER);
         first.setEditable(false);
@@ -56,9 +53,9 @@ public class PanelFriendship extends JPanel {
         second = new JTextField("", JLabel.CENTER);
         second.setEditable(false);
 
-        panel1.add(first);
-        panel1.add(AND);
-        panel1.add(second);
+        panel.add(first);
+        panel.add(AND);
+        panel.add(second);
 
         addButton("1", command);
         addButton("2", command);
@@ -80,7 +77,7 @@ public class PanelFriendship extends JPanel {
         addButton("AND", command);
         addButton("Add", command);
 
-        add(panel1, BorderLayout.CENTER);
+        add(panel, BorderLayout.CENTER);
 
         add(result, BorderLayout.SOUTH);
 
@@ -89,9 +86,9 @@ public class PanelFriendship extends JPanel {
     //panel1
     public void addButton(String label, ActionListener listener) {
         JButton button = new JButton(label);
-        button.setBackground(Color.WHITE);
+        button.setBackground(new Color(0xF5F5D4));
         button.addActionListener(listener);
-        panel1.add(button);
+        panel.add(button);
     }
 
     //click
@@ -156,8 +153,6 @@ public class PanelFriendship extends JPanel {
                                 {
                                     result.setText(Arrays.deepToString(friendships));
                                     friendships[friendships.length - 1] = new int[]{min, max};
-//                                friendships[friendships.length - 1][0] = min;
-//                                friendships[friendships.length - 1][1] = max;
                                 }
 
                                 System.out.println("Add new friendship: " + min + " - " + max);
@@ -201,9 +196,7 @@ public class PanelFriendship extends JPanel {
 
     public String calculate() {
         int v = friendships.length;
-        int[][] friendshipArr = friendships.clone();
-        String s = E6Friendship.callE6(friendships);
-        return s;
+        return E6Friendship.callE6(friendships);
     }
 }
 

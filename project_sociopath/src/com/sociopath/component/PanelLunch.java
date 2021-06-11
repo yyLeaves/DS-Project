@@ -1,22 +1,17 @@
 package com.sociopath.component;
 
 import com.sociopath.events.E0Init;
-import com.sociopath.events.E1Teaching;
 import com.sociopath.events.E3Lunch;
 import com.sociopath.events.Student;
-import com.sociopath.util.PathUtils;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * Description:
+ * Description: Lunch Panel
  *
  */
 public class PanelLunch extends JPanel {
@@ -29,16 +24,14 @@ public class PanelLunch extends JPanel {
     public PanelLunch(ArrayList<Student> students, Integer currentStudent) {
 
         setLayout(new BorderLayout());
-        setPreferredSize(new Dimension(850,550));
-        setBackground(new Color(0xEAF3DC));
+        setBackground(new Color(0xE8DCF3));
 
-        bg_Panel = new LunchBgPanel();
-        bg_Panel.setBackground(Color.WHITE);
-        bg_Panel.setPreferredSize(new Dimension(850,900));
+        bg_Panel = new JPanel();
+        bg_Panel.setBackground(new Color(0xE8DCF3));
 
         JButton teachButton = new JButton("How many reputations can I earn by having lunch?");
         teachButton.setPreferredSize(new Dimension(400,50));
-        teachButton.setBackground(new Color(0xF1EACA));
+        teachButton.setBackground(new Color(0xCCA6EE));
 
 
         add(teachButton,BorderLayout.NORTH);
@@ -72,16 +65,5 @@ public class PanelLunch extends JPanel {
         frame.add(new PanelLunch(E0Init.init(),(Integer)1));
 
         frame.setVisible(true);
-    }
-}
-
-class LunchBgPanel extends JPanel{
-    @Override
-    protected void paintComponent(Graphics g) {
-        try {
-            g.drawImage(ImageIO.read(new File(PathUtils.getPath("lunch_bg"))),0,0,getWidth(),getHeight(),null);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * Description:
+ * Description: events interface
  *
  */
 public class EventsInterface extends JFrame {
@@ -124,7 +124,6 @@ public class EventsInterface extends JFrame {
         root.add(stats);
         root.add(stats);
         root.add(event1);
-//        root.add(event2);
         root.add(libEvent);
 
         JTree tree = new JTree(root);
@@ -140,8 +139,6 @@ public class EventsInterface extends JFrame {
                 } else if (stats.equals(lastPathComponent)) {
                     // TODO: 2021/5/27 Debug
                     pane.setRightComponent(new BoxStudentInfo(20,students));
-//                    pane.setBackground(new Color(0x7979F1));
-//                    pane.setRightComponent(new EventPanel());
                     pane.setDividerLocation(150);
                 } else if (event1.equals(lastPathComponent)) {
                     pane.setRightComponent(new BoxFriend(students,Student.getCurrentStudentId()));

@@ -10,10 +10,8 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Description:
+ * Description: graph interface
  *
- * @author Yeyang Liu, S2000549
- * Created on: 2021/5/13 16:14, in project com.sociopath.ui
  */
 public class GraphInterface extends JFrame {
 

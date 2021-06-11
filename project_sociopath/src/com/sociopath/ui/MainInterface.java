@@ -15,7 +15,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * Description:
+ * Description: Main Interface / entrance
  *
  */
 public class MainInterface {
@@ -127,7 +127,6 @@ public class MainInterface {
                 System.out.println();
             }
             try {
-//                new EventsInterface(selectedItem,students).init();
                 new EventsInterface(students,Integer.parseInt((String) selectedItem)).init();
             } catch (IOException ioException) {
                 ioException.printStackTrace();

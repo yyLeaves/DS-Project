@@ -10,10 +10,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
- * Description:
+ * Description: Library Panel
  *
- * @author Yeyang Liu, S2000549
- * Created on: 2021/6/6 16:01, in project com.sociopath.component
  */
 public class BoxLib extends Box {
 
@@ -51,7 +49,7 @@ public class BoxLib extends Box {
         button1.setBackground(new Color(0xABDDEE));
 
         JButton button2 = new JButton("Meet Crush");
-        button2.setBackground(new Color(0xEF75A9));
+        button2.setBackground(new Color(0xF394BD));
 
         buttonPanel.add(button1);
         buttonPanel.add(button2);
@@ -62,7 +60,7 @@ public class BoxLib extends Box {
         PanelCalcBook calcPanel = new PanelCalcBook();
 
         // TODO: decide current student here
-        PanelCrush crushPanel = new PanelCrush(students,1);
+        PanelCrush crushPanel = new PanelCrush(students,Student.getCurrentStudentId());
 
 //        RelationshipPanel relationshipPanel = new RelationshipPanel(students);
 
@@ -86,8 +84,6 @@ public class BoxLib extends Box {
                 add(crushPanel);
                 calcPanel.validate();
                 validate();
-//                add(relationshipPanel);
-//                relationshipPanel.validate();
                 repaint();
 
             }

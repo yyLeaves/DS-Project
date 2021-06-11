@@ -1,17 +1,13 @@
 package com.sociopath.component;
 
 import com.sociopath.events.E0Init;
-import com.sociopath.events.E3Lunch;
+import com.sociopath.events.GraphVisted;
 import com.sociopath.events.Student;
-import com.sociopath.util.PathUtils;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -28,16 +24,14 @@ public class PanelCrush extends JPanel {
     public PanelCrush(ArrayList<Student> students, Integer currentStudent) {
 
         setLayout(new BorderLayout());
-        setPreferredSize(new Dimension(850,550));
-        setBackground(new Color(0xEAF3DC));
 
-        bg_Panel = new CrushBgPanel();
-        bg_Panel.setBackground(Color.WHITE);
-        bg_Panel.setPreferredSize(new Dimension(850,900));
+        bg_Panel=new JPanel();
+        bg_Panel.setLayout(new BorderLayout());
+        setBackground(new Color(0xEEA1C1));
 
         JButton teachButton = new JButton("Meet Your Crush and Stop the Rumor");
-        teachButton.setPreferredSize(new Dimension(400,50));
-        teachButton.setBackground(new Color(0xF1EACA));
+        teachButton.setPreferredSize(new Dimension(600,50));
+        teachButton.setBackground(new Color(0xEEB0D2));
 
 
         add(teachButton,BorderLayout.NORTH);
@@ -47,14 +41,14 @@ public class PanelCrush extends JPanel {
         teachButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("== Meet Your Crush ==");
 
-                // TODO: 2021/6/7
 
                 // Call method here
+                JOptionPane.showMessageDialog(null, "Please Input in Terminal", "Meet your Crush", JOptionPane.INFORMATION_MESSAGE);
+                System.out.println("== Meet Your Crush ==");
 
-
-                JOptionPane.showMessageDialog(null, "Implementing", "Your road to glory", JOptionPane.INFORMATION_MESSAGE);
+                //TODO : add here
+                GraphVisted.t();
 
             }
         });
@@ -70,15 +64,6 @@ public class PanelCrush extends JPanel {
         frame.add(new PanelCrush(E0Init.init(),(Integer)1));
 
         frame.setVisible(true);
-    }
-}
-class CrushBgPanel extends JPanel {
-    @Override
-    protected void paintComponent(Graphics g) {
-        try {
-            g.drawImage(ImageIO.read(new File(PathUtils.getPath("crush_bg"))),0,0,getWidth(),getHeight(),null);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

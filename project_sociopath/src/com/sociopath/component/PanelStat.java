@@ -12,10 +12,8 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- * Description:
+ * Description: Student Stats table panel
  *
- * @author Yeyang Liu, S2000549
- * Created on: 2021/5/27 11:55, in project com.sociopath.component
  */
 public class PanelStat extends JPanel {
     private ArrayList<Student> students = null;
@@ -28,7 +26,6 @@ public class PanelStat extends JPanel {
 
         int size = students.size();
         Object[] columnNames = {"Student ID", "Dive(%)", "lunch start", "lunch period", "friends"};
-//        Vector columnName = columnNames
         Object[][] rowData = new Object[size][5];
         for (int i = 0; i < students.size(); i++) {
             rowData[i][0] = students.get(i).getId();
@@ -63,7 +60,6 @@ public class PanelStat extends JPanel {
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         jf.setContentPane(new PanelStat(E0Init.init()));
-//        jf.setSize(850,500);
         jf.pack();
         jf.setLocationRelativeTo(null);
         jf.setVisible(true);
@@ -71,21 +67,12 @@ public class PanelStat extends JPanel {
 
     private class InfoTable extends JTable {
         // TODO: 2021/6/7
-        // if bug comment here
-/*        public InfoTable(Object[][] rowData, Object[] columnNames) {
-            super(rowData, columnNames);
-            // select one line at a time
-            setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-            setSelectionBackground(*//*Color.LIGHT_GRAY*//*new Color(0xE3CEFA));
-            setSelectionForeground(*//*Color.BLUE*//*new Color(0x6F2FAD));
-
-        }*/
 
         public InfoTable(TableModel dm) {
             super(dm);
             setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-            setSelectionBackground(/*Color.LIGHT_GRAY*/new Color(0xDBD2F3));
-            setSelectionForeground(/*Color.BLUE*/new Color(0x3D3D99));
+            setSelectionBackground(new Color(0xDBD2F3));
+            setSelectionForeground(new Color(0x3D3D99));
         }
 
         @Override
@@ -102,9 +89,9 @@ public class PanelStat extends JPanel {
         model.addTableModelListener(new TableModelListener() {
             @Override
             public void tableChanged(TableModelEvent e) {
-                int type = e.getType();//获取事件类型(增、删、改等)
-                int row = e.getFirstRow();//获取触发事件的行索引
-                int column = e.getColumn();//获取触发事件的列索引
+                int type = e.getType();
+                int row = e.getFirstRow();
+                int column = e.getColumn();
 
                 if (type == TableModelEvent.UPDATE) {
 
@@ -232,17 +219,6 @@ public class PanelStat extends JPanel {
                     }
                 }
 
-                /*
-                if (type == TableModelEvent.INSERT) {//如果是"插入"事件
-                    System.out.println("此事件是由\"插入\"触发,在" + row + "行" + column + "列");
-                    System.out.println(getComponentAt(row, column));
-                } else if (type == TableModelEvent.UPDATE) {
-                    System.out.println("此事件是由\"修改\"触发,在" + row + "行" + column + "列");
-                } else if (type == TableModelEvent.DELETE) {
-                    System.out.println("此事件是由\"删除\"触发,在" + row + "行" + column + "列");
-                } else {
-                    System.out.println("此事件是由其他原因触发");
-                }*/
             }
         });
     }

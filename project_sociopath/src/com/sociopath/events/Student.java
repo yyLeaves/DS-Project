@@ -11,7 +11,7 @@ import java.util.Map;
 public class Student {
     private static int inInc;
     private static int currentStudentId = 1;
-    private int id;
+    private final int id;
     private int dive;
     private int startTimeInMinute;
     private int lunchStart;
@@ -47,6 +47,11 @@ public class Student {
         return id == student.id;
     }
 
+    /**
+     * Check if the student is friend with another student
+     * @param student another student
+     * @return true if this student is friend with another student
+     */
     public boolean isFriendWith(Student student) {
         if (student.relationships.containsKey(this)) {
             if (student.relationships.get(this) < 0) {
@@ -62,6 +67,12 @@ public class Student {
         }
     }
 
+    /**
+     * Get one student's reputation from another student
+     * @param stu1 get the reputation from who
+     * @param stu2 get who's reputation
+     * @return the stu2's reputation in stu1
+     */
     public static Integer getReputation(Student stu1, Student stu2) {
         if (stu1.getRelationships().containsKey(stu2)) {
             return stu1.getRelationships().get(stu2);
@@ -69,6 +80,13 @@ public class Student {
         return null;
     }
 
+    /**
+     * check if two students are friends
+     * @param students the list that two students are in
+     * @param stu1Id 1st student's id
+     * @param stu2Id 2nd student's id
+     * @return true if 1st and 2nd students are friends
+     */
     public static boolean isFriendWith(ArrayList<Student> students, int stu1Id, int stu2Id) {
         stu1Id--;
         stu2Id--;
@@ -271,6 +289,7 @@ public class Student {
         students[3].makeFriends(students[9], 7, 7);
         students[8].makeFriends(students[9], 5, 6);
         Student.printStudents(students);
+        Student.incRep(students[0],students[1],1,1 );
         System.out.println(students[1].isFriendWith(students[2]));
 
         Student.printLunchtime(E0Init.init());

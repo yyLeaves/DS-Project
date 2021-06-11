@@ -10,8 +10,6 @@ import java.util.Properties;
 /**
  * Description:
  *
- * @author Yeyang Liu, S2000549
- * Created on: 2021/5/12 22:25, in project com.sociopath.util
  */
 public class PathUtils {
 
@@ -28,11 +26,8 @@ public class PathUtils {
 
     public static String getPath(String fileName) {
         String path;
-//        Properties prop = new Properties();
-        //            prop.load(new FileReader("path.properties"));
         path = prop.getProperty(fileName);
         return path;
-//        return null;
     }
 
     public static void main(String[] args) {

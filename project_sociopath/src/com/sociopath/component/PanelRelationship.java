@@ -10,10 +10,8 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- * Description:
+ * Description: relationship table panel
  *
- * @author Yeyang Liu, S2000549
- * Created on: 2021/5/27 19:35, in project com.sociopath.component
  */
 public class PanelRelationship extends JPanel{
     private DefaultTableModel model;
@@ -63,21 +61,11 @@ public class PanelRelationship extends JPanel{
 
     private class RelationTable extends JTable{
         // TODO: 2021/6/7
-        // If bug uncomment here
-/*        public RelationTable(Object[][] rowData, Object[] columnNames) {
-            super(rowData, columnNames);
-            // select one line at a time
-            setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-            setSelectionBackground(Color.LIGHT_GRAY);
-            setSelectionForeground(Color.BLUE);
-
-        }*/
-
         public RelationTable(TableModel dm) {
             super(dm);
             setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-            setSelectionBackground(/*Color.LIGHT_GRAY*/new Color(0xD2F3DD));
-            setSelectionForeground(/*Color.BLUE*/new Color(0x133916));
+            setSelectionBackground(new Color(0xD2F3DD));
+            setSelectionForeground(new Color(0x133916));
         }
 
         @Override

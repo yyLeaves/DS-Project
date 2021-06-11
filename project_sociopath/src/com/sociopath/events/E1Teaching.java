@@ -7,7 +7,7 @@ import java.util.ArrayList;
  *
  */
 public class E1Teaching {
-    private static ArrayList<Student> students;
+    private ArrayList<Student> students;
     public E1Teaching(ArrayList<Student> theStudents) {
         students = theStudents;
     }
@@ -19,8 +19,8 @@ public class E1Teaching {
         return strangers.get(randIndex);
     }
 
-    public Student randomStrangerToHelp(int currentStudent) {
-        Student current = students.get(currentStudent-1);
+    public Student randomStrangerToHelp(int currentStudentId) {
+        Student current = students.get(currentStudentId-1);
         return randomStrangerToHelp(current);
     }
 
@@ -34,7 +34,6 @@ public class E1Teaching {
         int diveOfStudentToHelp = studentToHelp.getDive();
         String returnStr = "Student " + studentToHelp.getId()+" needs your help!\n";
 
-        // TODO: dive rate -> reverse
         if(success) {
             current.makeFriends(studentToHelp,(100-diveOfStudentToHelp)*10/100,10);
             returnStr+=String.format("Congratulations! You helped %d solved the problem!\nYour rep to him increases by 10\n" +

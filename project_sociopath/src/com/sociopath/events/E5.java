@@ -10,6 +10,7 @@ public class E5 {
 
     private ArrayList<Student> newSpreaders;
     private ArrayList<Student> visited;
+    private ArrayList<Student> convinced = new ArrayList<>();
 
     private int currentStudentId;
     private Student crushStudent;
@@ -17,6 +18,8 @@ public class E5 {
 
     private boolean stop = false;
     private boolean fail = false;
+
+    Scanner sc = new Scanner(System.in);
 
 
     /**
@@ -66,18 +69,9 @@ public class E5 {
 
     public static void main(String[] args) {
 
-        //may show in GUI
-/*        Scanner s = new Scanner(System.in);
-        int n = s.nextInt();
-        System.out.println("Your crush: Student" + n);*/
 
-//       ----- find out random stanger from different cluster ----
-//
-//        The rumor will start in the stranger’s cluster and your crush is in another cluster. You
-//        might identify someone connected between these 2 clusters??? there is only 2 cluster, where am I
-//       ###### Here I take it as I'm in the diff cluster from stranger#####
         new E5(E0Init.init(), 1).meetCrush();
-        // call rumorSpreader x crush connection
+
 
     }
 
@@ -115,19 +109,7 @@ public class E5 {
         // rumor spreader - not your crush
         strangers.remove(crushStudent);
 
-        // the stranger will be removed out of possible rumor spreader list if he is friend with crush
-        ArrayList<Student> clusterWithCrush = new ArrayList<>();
-        for (Student stranger : strangers) {
-            if (stranger.isFriendWith(crushStudent)) {
-                clusterWithCrush.add(stranger);
-            }
-        }
-        for (Student withCrush : clusterWithCrush) {
-            strangers.remove(withCrush);
-        }
-
 //        Student.printStudents(strangers);
-
         int index = (int) (Math.random() * strangers.size());
 
         Student rumor = strangers.get(index);
@@ -146,34 +128,27 @@ public class E5 {
         while (!stop) {
             spreadRumor();
 
+
         }
 
     }
 
     // get the distance to crush of each student among the newSpreaders and convince the one with the shortest path distance
-    public void convinceOne() {
-        // new Spreader
-        if (newSpreaders.size() == 1) {
-//            System.out.println("Convinced Student " + newSpreaders.get(0).getId());
-//            stop = true;
+    public void convince(Student toConvince) {
+        System.out.println("You can convince ");
+        System.out.println(visited);
+        System.out.println("Who do you want to convince?");
+        int convince = sc.nextInt();
+        for (Student student : visited) {
+            if(student.getId()==convince) {
+
+            }
         }
 
-        for (Student newSpreader : newSpreaders) {
-
-        }
 
     }
 
-    // TODO: 2021/6/6
-    // bfs for the shortest path distance
-    public int distanceToCrush(Student student) {
-        List<Student> visitedStudents = new ArrayList<>();
-        Queue<Student> toVisit = new LinkedList<>(Student.getFriends(students, student));
-        while (!toVisit.isEmpty()) {
 
-        }
-        return -1;
-    }
 
     public void spreadRumor() {
         ArrayList<Student> spreadTo = new ArrayList<>();

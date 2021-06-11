@@ -10,10 +10,8 @@ import java.util.Arrays;
 import java.util.Stack;
 
 /**
- * Description:
+ * Description: Arrange Book Panel
  *
- * @author Yeyang Liu, S2000549
- * Created on: 2021/6/6 16:07, in project com.sociopath.component
  */
 
 
@@ -30,8 +28,6 @@ public class PanelCalcBook extends JPanel {
     private JTextField display;
     private JTextField result;
     private JPanel panel1;
-    private JPanel panel2;
-    private JPanel panel3;
     private String clickButton;
 
     public PanelCalcBook() {
@@ -40,7 +36,6 @@ public class PanelCalcBook extends JPanel {
 
         setLayout(new BorderLayout());
 
-        //把文本框加在上面north里
         display = new JTextField("");
         result = new JTextField("");
         display.setEditable(false);
@@ -85,18 +80,12 @@ public class PanelCalcBook extends JPanel {
     //panel1
     public void addButton(String label, ActionListener listener) {
         JButton button = new JButton(label);
-        button.setBackground(Color.WHITE);
+        button.setBackground(new Color(0xCAE2F8));
         button.addActionListener(listener);
         panel1.add(button);
     }
 
-    // panel 2
-    private void addButton2(String label, ActionListener listener) {
-        //
-        JButton button = new JButton(label);
-        button.addActionListener(listener);
-        panel2.add(button);
-    }
+
 
     //click
     class commandAction implements ActionListener {

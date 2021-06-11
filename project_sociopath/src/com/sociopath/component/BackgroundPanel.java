@@ -4,10 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Description:
+ * Description: background panel for relationship image
  *
- * @author Yeyang Liu, S2000549
- * Created on: 2021/5/12 23:25, in project com.sociopath.component
  */
 public class BackgroundPanel extends JPanel {
     private Image backgroundImage;

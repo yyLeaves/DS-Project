@@ -10,10 +10,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
- * Description:
+ * Description: Friend Box
  *
- * @author Yeyang Liu, S2000549
- * Created on: 2021/6/6 16:01, in project com.sociopath.component
  */
 public class BoxFriend extends Box {
 
