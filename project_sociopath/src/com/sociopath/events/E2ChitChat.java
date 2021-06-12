@@ -25,10 +25,12 @@ public class E2ChitChat {
                 }
                 if (repAboutYou >= 0) {
                     friend.getRelationships().put(you, oldRep + repAboutYou / 2);
-                    returnStr+=(String.format("Student %d has a chitchat with his friend %d\nYour reputation to he/she increases by %d\n", studentChitChat.getId(), friend.getId(), repAboutYou / 2));
+                    returnStr+=(String.format("Student %d has a chitchat with his friend %d\nYour reputation to he/she increases by %d\n",
+                            studentChitChat.getId(), friend.getId(), repAboutYou / 2));
                 } else {
                     friend.getRelationships().put(you, repAboutYou);
-                    returnStr+=(String.format("Student %d has a chitchat with his friends\nYour reputation to he/she decreases by %d\n", studentChitChat.getId(), -repAboutYou));
+                    returnStr+=(String.format("Student %d has a chitchat with his friends\nYour reputation to he/she decreases by %d\n",
+                            studentChitChat.getId(), -repAboutYou));
                 }
             }
         }

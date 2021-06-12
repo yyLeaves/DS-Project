@@ -41,14 +41,16 @@ public class PanelCrush extends JPanel {
         teachButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+//                new PanelCrush2(currentStudent).init();
+//                add(new PanelCrush2(students,Student.getCurrentStudentId()));
 
                 // Call method here
-                JOptionPane.showMessageDialog(null, "Please Input in Terminal", "Meet your Crush", JOptionPane.INFORMATION_MESSAGE);
+/*                JOptionPane.showMessageDialog(null, "Please Input in Terminal", "Meet your Crush", JOptionPane.INFORMATION_MESSAGE);
                 System.out.println("== Meet Your Crush ==");
 
                 //TODO : add here
                 GraphVisted.t();
+                JOptionPane.showMessageDialog(null, "Please Input in Terminal", "Meet your Crush", JOptionPane.INFORMATION_MESSAGE);*/
 
             }
         });

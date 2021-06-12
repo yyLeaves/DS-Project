@@ -35,7 +35,7 @@ public class E1Teaching {
         String returnStr = "Student " + studentToHelp.getId()+" needs your help!\n";
 
         if(success) {
-            current.makeFriends(studentToHelp,(100-diveOfStudentToHelp)*10/100,10);
+            current.makeFriends(studentToHelp,(100-diveOfStudentToHelp)/10,10);
             returnStr+=String.format("Congratulations! You helped %d solved the problem!\nYour rep to him increases by 10\n" +
                     "His reputation to you increases by %d\n",studentToHelp.getId(),(100-diveOfStudentToHelp)*10/100);
             returnStr+=E2ChitChat.chitChat(students,studentToHelp,current);
@@ -44,7 +44,7 @@ public class E1Teaching {
         } else {
             //you will still be friends with him,
             //your rep points relative to that person will be 2 instead
-            current.makeFriends(studentToHelp,(100-diveOfStudentToHelp)*10/200,2);
+            current.makeFriends(studentToHelp,(100-diveOfStudentToHelp)/20,2);
             returnStr+=String.format("Oops, You didn't solve the problem for %d... \nYour rep to him increases by 2" +
                     "\nhis reputation to you increases by %d\n",studentToHelp.getId(),(100-diveOfStudentToHelp)*10/200);
             returnStr+=E2ChitChat.chitChat(students,studentToHelp,current);
