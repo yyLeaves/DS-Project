@@ -59,10 +59,15 @@ public class BoxFriend extends Box {
         JButton button4 = new JButton("Update LunchTime");
         button4.setBackground(new Color(0xF3E3E3));
 
+        JButton button5 = new JButton("Parallel Farming");
+        button5.setBackground(new Color(0xFF4D65));
+
         buttonPanel.add(button1);
         buttonPanel.add(button2);
         buttonPanel.add(button3);
+        buttonPanel.add(button5);
         buttonPanel.add(button4);
+
 
         // button for management
         add(buttonPanel);
@@ -70,6 +75,7 @@ public class BoxFriend extends Box {
         PanelTeaching teachPanel = new PanelTeaching(students,currentStudent);
         PanelLunch lunchPanel = new PanelLunch(students,currentStudent);
         PanelFriendship friendshipPanel = new PanelFriendship();
+        PanelParallelFarming parallelFarmingPanel = new PanelParallelFarming(students, currentStudent);
 
 
         add(teachPanel);
@@ -79,6 +85,7 @@ public class BoxFriend extends Box {
             public void actionPerformed(ActionEvent e) {
                 remove(lunchPanel);
                 remove(friendshipPanel);
+                remove(parallelFarmingPanel);
                 add(teachPanel);
                 repaint();
             }
@@ -91,6 +98,7 @@ public class BoxFriend extends Box {
             public void actionPerformed(ActionEvent e) {
                 remove(teachPanel);
                 remove(friendshipPanel);
+                remove(parallelFarmingPanel);
                 add(lunchPanel);
                 validate();
                 lunchPanel.validate();
@@ -104,6 +112,7 @@ public class BoxFriend extends Box {
             public void actionPerformed(ActionEvent e) {
                 remove(teachPanel);
                 remove(lunchPanel);
+                remove(parallelFarmingPanel);
                 add(friendshipPanel);
                 validate();
                 friendshipPanel.validate();
@@ -126,5 +135,18 @@ public class BoxFriend extends Box {
             }
         });
 
+        button5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                remove(teachPanel);
+                remove(friendshipPanel);
+                remove(lunchPanel);
+                add(parallelFarmingPanel);
+                validate();
+                parallelFarmingPanel.validate();
+                repaint();
+
+            }
+        });
     }
 }
