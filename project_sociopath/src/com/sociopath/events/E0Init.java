@@ -23,8 +23,8 @@ public class E0Init {
         students.get(1).makeFriends(students.get(4),6,2);
         students.get(1).makeFriends(students.get(5),9,7);
         students.get(3).makeFriends(students.get(7),7,10);
-        students.get(3).makeFriends(students.get(9),5,6);
-        students.get(8).makeFriends(students.get(9),7,7);
+        students.get(3).makeFriends(students.get(9),7,7);
+        students.get(8).makeFriends(students.get(9),5,6);
         return students;
     }
 
