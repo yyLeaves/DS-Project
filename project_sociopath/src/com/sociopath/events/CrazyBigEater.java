@@ -8,10 +8,10 @@ Duration   : 0006 -> 0059
 End time   : 1106 -> 1459
  */
 
-public class ParallelFarming {
+public class CrazyBigEater {
     private static ArrayList<Student> students;
 
-    public ParallelFarming(ArrayList<Student> deStudents){
+    public CrazyBigEater(ArrayList<Student> deStudents){
         students = (ArrayList<Student>) deStudents.clone();
 
     }
@@ -49,13 +49,15 @@ public class ParallelFarming {
     // To return a description on the lunch arrangement
     public static String getLunchList(ArrayList<Student> ans, Student you){
         String temp = "";
-        String temp2= "CRAZY BIG EATER(PARALLEL FARMING)\nI can have lunch with Student ";
+        String temp2= "CRAZY BIG EATER\nI can have lunch with Student ";
+        String temp3 = "";
         for (Student an : ans) {
             Student.incRep(you, an, 1, 2);
             temp2 = temp2 + an.getId() + ",";
+            temp3 = temp3 + "My rep to Student " + an.getId() + " increased by 2, his/her rep to me increased by 1\n";
             temp = temp + "Student ID:" + an.getId() + "\nLunch Period: " + String.valueOf(an.getLunchStart()).substring(0, String.valueOf(an.getLunchStart()).length()-2) + ":" + String.valueOf(an.getLunchStart()).substring(2) + "-->" + String.valueOf(getEndTIme(an)).substring(0, String.valueOf(getEndTIme(an)).length()-2) + ":" + String.valueOf(getEndTIme(an)).substring(2) + "\n";
         }
-        return "-".repeat(38) + "\n" + temp2.substring(0,temp2.length()-1) + ".\n\n" + temp + "-".repeat(38);
+        return "-".repeat(38) + "\n" + temp2.substring(0,temp2.length()-1) + ".\n\n" + temp + "\n" + temp3 +"-".repeat(38);
     }
 
     // To sort the end time in ascending order.
@@ -87,7 +89,7 @@ public class ParallelFarming {
         s.get(3).setLunchPeriod(20);
         s.get(7).setLunchStart(1150);
         s.get(7).setLunchPeriod(20);
-        ParallelFarming e= new ParallelFarming(s);
+        CrazyBigEater e= new CrazyBigEater(s);
         ArrayList<Student> ans = e.receiver(s.get(0));
         System.out.println(e.getLunchList(ans, s.get(0)));
         Student.printStudents(s);
