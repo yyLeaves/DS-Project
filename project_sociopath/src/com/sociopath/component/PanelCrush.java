@@ -1,8 +1,6 @@
 package com.sociopath.component;
 
-import com.sociopath.events.E0Init;
-import com.sociopath.events.GraphVisted;
-import com.sociopath.events.Student;
+import com.sociopath.events.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -49,9 +47,12 @@ public class PanelCrush extends JPanel {
                 System.out.println("== Meet Your Crush ==");
 
                 //TODO : add here
+
                 GraphVisted.t();
                 JOptionPane.showMessageDialog(null, "Please Input in Terminal", "Meet your Crush", JOptionPane.INFORMATION_MESSAGE);*/
 
+                E5meetCrush e5 = new E5meetCrush(10);
+                e5.meet(currentStudent);
             }
         });
 
