@@ -109,26 +109,26 @@ public class E5meetCrush {
         Random r=new Random();
         int crush= r.nextInt(10)+1;
 
-        if (crush!=currentStudentId){
-            crush=crush;
-            spreader(crush);
-        }
-        else{
+        if (crush==currentStudentId){
             crush();
         }
+        else
+            crush= crush;
         return crush;
     }
 
     public int spreader(int crush){
+        LinkedList<Integer> keys = new LinkedList<Integer>();
+        keys.add(crush);
+        
         Random r=new Random();
         int spreader= r.nextInt(10)+1;
-        if(spreader!= currentStudentId && spreader!= crush){
-            spreader=spreader;
+        if (!keys.contains(spreader)) {
+            keys.add(spreader);
+            return spreader;
+        } else {
+            return spreader(crush);
         }
-        else{
-            spreader(crush);
-        }
-        return spreader;
     }
 
 
