@@ -192,7 +192,6 @@ public class E5meetCrush {
     public void end(){
         System.out.println(":: "+KnowSize+" person knows about your rumors");
         System.out.println(":: "+convince+" person has been convinced");
-        System.exit(0);
     }
 
     public void meet(int currentStudentId) {
