@@ -93,7 +93,7 @@ public class E5meetCrush {
                 }
 
                 if(nextQueue.contains(crush)){
-                    con=false; 
+                    con=false;
                     queue.clear();
                     System.out.println("\nOh no, your crush("+crush+")"+" knows!\n");
                 }
@@ -105,7 +105,7 @@ public class E5meetCrush {
             }
         }
         if (con!=false){
-           System.out.println("Rumors will not reach to your crush, GOODLUCK!");}
+            System.out.println("Rumors will not reach to your crush, GOODLUCK!");}
         end();
     }
 
@@ -149,43 +149,43 @@ public class E5meetCrush {
             System.out.println("You can't convince anyone in the first day!\n");
             first = false;
         } else {
-        System.out.println("\nWho do you want to convience? Press 0 if none");
-        System.out.print("Convince: ");
+            System.out.println("\nWho do you want to convience? Press 0 if none");
+            System.out.print("Convince: ");
 /*        Scanner s=new Scanner(System.in);
         int input= s.nextInt();*/
 
             int input;
-        String str = JOptionPane.showInputDialog(null,"who?","convince",JOptionPane.PLAIN_MESSAGE);
-        if(str==null) {
-            input = 0;
-        } else {
-            input = Integer.parseInt(str);
-        }
-
-        if(input==0){
-            System.out.println("You did not convience anyone\n");
-        }
-
-        else if(!queue.contains(input)){
-            convinceOne();
-        }
-
-        else {
-            convince++;
-
-            // get all adjacent nodes of current node and process
-            Iterator<Integer> i = adj_list[input].listIterator();
-            while (i.hasNext()) {
-                int n = i.next();
-                if (visit.get(n).booleanValue() == Boolean.FALSE) {
-                    visit.set(input, Boolean.TRUE);
-                }
+            String str = JOptionPane.showInputDialog(null,"who?","convince",JOptionPane.PLAIN_MESSAGE);
+            if(str==null) {
+                input = 0;
+            } else {
+                input = Integer.parseInt(str);
             }
-            int y = queue.indexOf(input);        //remove object
-            queue.remove(y);
 
-            System.out.println("This student stops spreading to his friends\n");
-        }
+            if(input==0){
+                System.out.println("You did not convience anyone\n");
+            }
+
+            else if(!queue.contains(input)){
+                convinceOne();
+            }
+
+            else {
+                convince++;
+
+                // get all adjacent nodes of current node and process
+                Iterator<Integer> i = adj_list[input].listIterator();
+                while (i.hasNext()) {
+                    int n = i.next();
+                    if (visit.get(n).booleanValue() == Boolean.FALSE) {
+                        visit.set(input, Boolean.TRUE);
+                    }
+                }
+                int y = queue.indexOf(input);        //remove object
+                queue.remove(y);
+
+                System.out.println("This student stops spreading to his friends\n");
+            }
         }
     }
 
