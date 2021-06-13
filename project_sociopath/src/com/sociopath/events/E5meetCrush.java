@@ -11,6 +11,7 @@ public class E5meetCrush {
     private int crush;
     private int spreader;
     private boolean first = true;
+    private boolean con;
 
 
     int convince=0, KnowSize=1;
@@ -57,6 +58,7 @@ public class E5meetCrush {
 
             LinkedList<Integer> nextQueue = new LinkedList<Integer>();
             boolean dayPrinted = false;
+            con=true;
 
             // traversed ALL the nodes in this layer
             // and put them into the nextLayer queue
@@ -91,17 +93,19 @@ public class E5meetCrush {
                 }
 
                 if(nextQueue.contains(crush)){
+                    con=false; 
+                    queue.clear();
                     System.out.println("\nOh no, your crush("+crush+")"+" knows!\n");
-                    end();
                 }
             }
-            if(dayPrinted){
+            if(dayPrinted && con){
                 queue = nextQueue;
                 convinceOne();
                 day++;
             }
         }
-        System.out.println("Rumors will not reach to your crush, GOODLUCK!");
+        if (con!=false){
+           System.out.println("Rumors will not reach to your crush, GOODLUCK!");}
         end();
     }
 
@@ -142,7 +146,7 @@ public class E5meetCrush {
     public void convinceOne(){
 
         if(first) {
-            System.out.println("You can't convince anyone in the first day!");
+            System.out.println("You can't convince anyone in the first day!\n");
             first = false;
         } else {
         System.out.println("\nWho do you want to convience? Press 0 if none");
