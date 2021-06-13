@@ -18,8 +18,8 @@
 - Abandon the use of neo4j
 - Discuss about the use of git repository
 - Assign extra feature work & ddl of basic features to team members
-  + yeyang & huiting: 1,2,5（Week 12一定要弄好） + parallel farming(不是Week 12)
-  + toh & niu：3，4，6（Week 12一定要弄好）+ six degree（不是Week 12）
+  + yeyang & huiting: 1,2,5（Before Week 12） + parallel farming(After Week 12)
+  + toh & niu：3，4，6（Before Week 12）+ six degree（After Week 12）
 - Discuss the time for next meeting - 28/05/2021
 
 ## 04/06/2021 Third Meeting
