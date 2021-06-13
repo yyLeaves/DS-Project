@@ -118,7 +118,7 @@ public class E5meetCrush {
     }
 
     public int spreader(int crush){
-        LinkedList<Integer> keys = new LinkedList<Integer>();
+        /*LinkedList<Integer> keys = new LinkedList<Integer>();
         keys.add(crush);
         
         Random r=new Random();
@@ -126,6 +126,12 @@ public class E5meetCrush {
         if (!keys.contains(spreader)) {
             keys.add(spreader);
             return spreader;
+        } else {
+            return spreader(crush);
+        }*/
+        int i = (int)(Math.random()*10+1);
+        if(i!=crush&&i!=currentStudentId) {
+            return i;
         } else {
             return spreader(crush);
         }
