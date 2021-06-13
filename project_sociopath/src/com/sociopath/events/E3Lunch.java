@@ -30,6 +30,7 @@ public class E3Lunch {
     public static String getLunchList(ArrayList<Student> ans) {
         String temp = "";
         String temp2 = "";
+        String temp3 = "";
         if(ans.size()==0){
             temp2 = "I can have lunch with nobody, what a pity..";
         }else {
@@ -38,9 +39,10 @@ public class E3Lunch {
         for (Student an : ans) {
             Student.incRep(you, an, 1, 1);
             temp2 = temp2 + an.getId() + ",";
+            temp3 = temp3 + "My rep to Student " + an.getId() + " increased by 1, his/her rep to me increased by 1\n";
             temp = temp + "Student ID:" + an.getId() + "\nLunch Period: " + String.valueOf(an.getLunchStart()).substring(0, String.valueOf(an.getLunchStart()).length() - 2) + ":" + String.valueOf(an.getLunchStart()).substring(2) + "-->" + String.valueOf(getEndTIme(an)).substring(0, String.valueOf(getEndTIme(an)).length() - 2) + ":" + String.valueOf(getEndTIme(an)).substring(2) + "\n";
         }
-        return "-".repeat(38) + "\n" + "My lunchtime is " + String.valueOf(you.getLunchStart()).substring(0, String.valueOf(you.getLunchStart()).length() - 2) + ":" + String.valueOf(you.getLunchStart()).substring(2) + "-->" + String.valueOf(getEndTIme(you)).substring(0, String.valueOf(getEndTIme(you)).length() - 2) + ":" + String.valueOf(getEndTIme(you)).substring(2) + "\n" + temp2.substring(0, temp2.length() - 1) + ".\n\n" + temp + "-".repeat(38);
+        return "-".repeat(38) + "\n" + "My lunchtime is " + String.valueOf(you.getLunchStart()).substring(0, String.valueOf(you.getLunchStart()).length() - 2) + ":" + String.valueOf(you.getLunchStart()).substring(2) + "-->" + String.valueOf(getEndTIme(you)).substring(0, String.valueOf(getEndTIme(you)).length() - 2) + ":" + String.valueOf(getEndTIme(you)).substring(2) + "\n" + temp2.substring(0, temp2.length() - 1) + ".\n\n" + temp + "\n" + temp3 + "-".repeat(38);
     }
 
     // To sort the end time in ascending order.

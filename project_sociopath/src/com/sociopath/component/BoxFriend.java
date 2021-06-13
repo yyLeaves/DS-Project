@@ -59,7 +59,7 @@ public class BoxFriend extends Box {
         JButton button4 = new JButton("Update LunchTime");
         button4.setBackground(new Color(0xF3E3E3));
 
-        JButton button5 = new JButton("Parallel Farming");
+        JButton button5 = new JButton("Crazy Big Eater");
         button5.setBackground(new Color(0xFF4D65));
 
         buttonPanel.add(button1);
@@ -75,7 +75,7 @@ public class BoxFriend extends Box {
         PanelTeaching teachPanel = new PanelTeaching(students,currentStudent);
         PanelLunch lunchPanel = new PanelLunch(students,currentStudent);
         PanelFriendship friendshipPanel = new PanelFriendship();
-        PanelParallelFarming parallelFarmingPanel = new PanelParallelFarming(students, currentStudent);
+        PanelCrazyBigEater crazyBigEaterPanel = new PanelCrazyBigEater(students, currentStudent);
 
 
         add(teachPanel);
@@ -85,7 +85,7 @@ public class BoxFriend extends Box {
             public void actionPerformed(ActionEvent e) {
                 remove(lunchPanel);
                 remove(friendshipPanel);
-                remove(parallelFarmingPanel);
+                remove(crazyBigEaterPanel);
                 add(teachPanel);
                 repaint();
             }
@@ -98,7 +98,7 @@ public class BoxFriend extends Box {
             public void actionPerformed(ActionEvent e) {
                 remove(teachPanel);
                 remove(friendshipPanel);
-                remove(parallelFarmingPanel);
+                remove(crazyBigEaterPanel);
                 add(lunchPanel);
                 validate();
                 lunchPanel.validate();
@@ -112,7 +112,7 @@ public class BoxFriend extends Box {
             public void actionPerformed(ActionEvent e) {
                 remove(teachPanel);
                 remove(lunchPanel);
-                remove(parallelFarmingPanel);
+                remove(crazyBigEaterPanel);
                 add(friendshipPanel);
                 validate();
                 friendshipPanel.validate();
@@ -141,9 +141,9 @@ public class BoxFriend extends Box {
                 remove(teachPanel);
                 remove(friendshipPanel);
                 remove(lunchPanel);
-                add(parallelFarmingPanel);
+                add(crazyBigEaterPanel);
                 validate();
-                parallelFarmingPanel.validate();
+                crazyBigEaterPanel.validate();
                 repaint();
 
             }

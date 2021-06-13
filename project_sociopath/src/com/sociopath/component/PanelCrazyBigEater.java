@@ -1,8 +1,7 @@
 package com.sociopath.component;
 
 import com.sociopath.events.E0Init;
-import com.sociopath.events.E3Lunch;
-import com.sociopath.events.ParallelFarming;
+import com.sociopath.events.CrazyBigEater;
 import com.sociopath.events.Student;
 
 import javax.swing.*;
@@ -15,14 +14,14 @@ import java.util.ArrayList;
  * Description: Lunch Panel
  *
  */
-public class PanelParallelFarming extends JPanel {
+public class PanelCrazyBigEater extends JPanel {
 
 
     private JLabel label;
 
     private JPanel bg_Panel;
 
-    public PanelParallelFarming(ArrayList<Student> students, Integer currentStudent) {
+    public PanelCrazyBigEater(ArrayList<Student> students, Integer currentStudent) {
 
         setLayout(new BorderLayout());
         setBackground(new Color(0xFF8B8B));
@@ -42,15 +41,15 @@ public class PanelParallelFarming extends JPanel {
         teachButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("== Parallel Farming ==");
+                System.out.println("== Crazy Big Eater ==");
 
-                ParallelFarming lunch = new ParallelFarming(students);
+                CrazyBigEater lunch = new CrazyBigEater(students);
 
-                String s = ParallelFarming.getLunchList(ParallelFarming.receiver(students.get(currentStudent-1)),students.get(currentStudent-1));
+                String s = CrazyBigEater.getLunchList(CrazyBigEater.receiver(students.get(currentStudent-1)),students.get(currentStudent-1));
 
                 System.out.println(s);
 
-                JOptionPane.showMessageDialog(null, s, "Parallel Farming", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, s, "Crazy Big Eater", JOptionPane.INFORMATION_MESSAGE);
 
             }
         });
@@ -63,7 +62,7 @@ public class PanelParallelFarming extends JPanel {
 
         frame.setLayout(new GridLayout());
         frame.setBounds(400,500,850,600);
-        frame.add(new PanelParallelFarming(E0Init.init(),(Integer)1));
+        frame.add(new PanelCrazyBigEater(E0Init.init(),(Integer)1));
 
         frame.setVisible(true);
     }
