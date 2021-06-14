@@ -22,6 +22,7 @@ public class E5meetCrush {
 
 
     public E5meetCrush(int v, int currentStudentId) {
+        this.currentStudentId = currentStudentId;
         Vertices = v;
         adj_list = new LinkedList[v];
         for (int i = 0; i < v; ++i) {         //create adjacency lists
@@ -38,7 +39,7 @@ public class E5meetCrush {
     }
 
 
-    void BFS(int currentStudentId) {
+    void BFS() {
 
         this.crush = crush();
         this.spreader = spreader(crush);
@@ -192,7 +193,7 @@ public class E5meetCrush {
     }
 
     public void meet(int currentStudentId) {
-//        this.currentStudentId = currentStudentId;
+        this.currentStudentId = currentStudentId;
 //        System.out.println(currentStudentId);
         E5meetCrush g = new E5meetCrush(11,currentStudentId);
         //add edges to the graph
@@ -206,7 +207,7 @@ public class E5meetCrush {
         g.addEdge(9, 10);
 
         //print BFS sequence
-        g.BFS(currentStudentId);
+        g.BFS();
     }
 
     public static void main(String args[]) {
