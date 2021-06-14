@@ -40,8 +40,18 @@ public class E5meetCrush {
 
     void BFS(int currentStudentId) {
 
-        this.crush = crush();
-        this.spreader = spreader(crush);
+//        System.out.println("c:"+currentStudentId);
+        do{
+            crush =(int) (Math.random()*10+1);
+        } while (crush==currentStudentId);
+
+/*        this.crush = crush(currentStudentId);
+        this.spreader = spreader(crush,currentStudentId);*/
+
+        do{
+            spreader = (int) (Math.random()*10+1);
+        } while (spreader==crush||spreader==currentStudentId);
+
         System.out.println("Your have a crush on Student " + crush);
 
 
@@ -109,21 +119,21 @@ public class E5meetCrush {
         end();
     }
 
-    public int crush() {
+/*    public int crush(int currentStudentId) {
         Random r = new Random();
         int crush = r.nextInt(10) + 1;
 
         if (crush == currentStudentId) {
-            return crush();
+            return crush(currentStudentId);
         } else {
             return crush;
         }
-    }
+    }*/
 
-    public int spreader(int crush) {
-        /*LinkedList<Integer> keys = new LinkedList<Integer>();
+/*    public int spreader(int crush, int currentStudentId) {
+        *//*LinkedList<Integer> keys = new LinkedList<Integer>();
         keys.add(crush);
-        
+
         Random r=new Random();
         int spreader= r.nextInt(10)+1;
         if (!keys.contains(spreader)) {
@@ -131,23 +141,22 @@ public class E5meetCrush {
             return spreader;
         } else {
             return spreader(crush);
-        }*/
+        }*//*
         int i = (int) (Math.random() * 10 + 1);
         if (i != crush && i != currentStudentId) {
             return i;
         } else {
-            return spreader(crush);
+            return spreader(crush,currentStudentId);
         }
-    }
+    }*/
 
 
     public void convinceOne() {
 
-        int input;
+        int input=0;
         if (first) {
             System.out.println("You can't convince anyone in the first day!\n");
             first = false;
-            input = 0;
         } else {
             System.out.println("\nWho do you want to convience? Press 0 if none");
             System.out.print("Convince: ");
@@ -163,26 +172,26 @@ public class E5meetCrush {
             }
 
         }
-            if (input == 0) {
-                System.out.println("You did not convience anyone\n");
-            } else if (!queue.contains(input)) {
-                convinceOne();
-            } else {
-                convince++;
+        if (input == 0) {
+            System.out.println("You did not convience anyone\n");
+        } else if (!queue.contains(input)) {
+            convinceOne();
+        } else {
+            convince++;
 
-                // get all adjacent nodes of current node and process
-                Iterator<Integer> i = adj_list[input].listIterator();
-                while (i.hasNext()) {
-                    int n = i.next();
-                    if (visit.get(n).booleanValue() == Boolean.FALSE) {
-                        visit.set(input, Boolean.TRUE);
-                    }
+            // get all adjacent nodes of current node and process
+            Iterator<Integer> i = adj_list[input].listIterator();
+            while (i.hasNext()) {
+                int n = i.next();
+                if (visit.get(n).booleanValue() == Boolean.FALSE) {
+                    visit.set(input, Boolean.TRUE);
                 }
-                int y = queue.indexOf(input);        //remove object
-                queue.remove(y);
-
-                System.out.println("This student stops spreading to his friends\n");
             }
+            int y = queue.indexOf(input);        //remove object
+            queue.remove(y);
+
+            System.out.println("This student stops spreading to his friends\n");
+        }
 
     }
 
