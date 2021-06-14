@@ -1,3 +1,8 @@
+<p align="center">
+    <a href="https://rem.mit-license.org/">
+        <img src="https://img.shields.io/badge/license-MIT-blueviolet" alt="MIT License" />
+    </a>
+</p>
 # Data Structure Assignment
 https://github.com/yyLeaves/DS-Project
 
