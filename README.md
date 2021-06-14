@@ -35,8 +35,6 @@ Contributors (Alphabets Order):
 ## 05/06/2021 Fourth Meeting
 - Discuss about the reports
 - Assign work of reports to everyone
-
-## 05/06/2021 Fourth Meeting
 - Assign test and debug tasks
 - Discuss the time for next meeting, 10/06/2021
 
