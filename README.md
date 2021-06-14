@@ -1,13 +1,25 @@
 # Data Structure Assignment
 https://github.com/yyLeaves/DS-Project
 
-Contributors (Alphabets Order):
+## Contributors (Alphabets Order):
 + [@AhToh643](https://github.com/AhToh643)
 + [@jeongie](https://github.com/jeongie)
 + [@Koukotsukan](https://github.com/Koukotsukan)
 + [@yyLeaves](https://github.com/yyLeaves)
 
 
+# Handbook
+
+## Entrance Class
+
+`DS-Project -> project_sociopath -> src -> com -> sociopath -> ui -> MainInterface`
+
+## Possible Problems and Solution
+
+If you are having an IOException, that is probably because your IDE cannot find `path.properties`.
+The simplest fix method is to go to `DS-Project -> project_sociopath -> src -> com -> sociopath -> util -> PathUtils`, change line 21 "path.properties" to the absolute path of 'DS-Project/path.properties'
+
+# Agenda
 ## 20/05/2021 First Meeting
 - Discuss about the project
 - Discuss about the implementation of Student and their Relationships
@@ -43,15 +55,3 @@ Contributors (Alphabets Order):
 
 ## 12/06/2021 Sixth Meeting
 - Discuss about the report
-
-
-# Handbook
-
-## Entrance Class
-
-`DS-Project -> project_sociopath -> src -> com -> sociopath -> ui -> MainInterface`
-
-## Possible Problems and Solution
-
-If you are having an IOException, that is probably because your IDE cannot find `path.properties`.
-The simplest fix method is to go to `DS-Project -> project_sociopath -> src -> com -> sociopath -> util -> PathUtils`, change line 21 "path.properties" to the absolute path of 'DS-Project/path.properties'
