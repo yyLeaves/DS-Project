@@ -1,9 +1,7 @@
-<p align="center">
-    <a href="https://rem.mit-license.org/">
-        <img src="https://img.shields.io/badge/license-MIT-blueviolet" alt="MIT License" />
-    </a>
-</p>
-# Data Structure Assignment
+
+# Sociopath
+![https://mit-license.org/](https://img.shields.io/badge/license-MIT-blueviolet)
+
 https://github.com/yyLeaves/DS-Project
 
 ## Contributors (Alphabetical Order):
