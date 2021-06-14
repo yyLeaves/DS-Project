@@ -37,4 +37,11 @@ https://github.com/yyLeaves/DS-Project
 
 # Handbook
 
-`project_sociopath -> src -> com -> sociopath -> ui -> main interface`
+## Entrance
+
+`DS-Project -> project_sociopath -> src -> com -> sociopath -> ui -> MainInterface`
+
+## Possible Problems and Solution
+
+If you are having an IOException, that is probably because your IDE cannot find `path.properties`.
+The simplest fix is to go to `DS-Project -> project_sociopath -> src -> com -> sociopath -> util -> PathUtils`, change line 21 "path.properties" to the absolute path of 'DS-Project/path.properties'
