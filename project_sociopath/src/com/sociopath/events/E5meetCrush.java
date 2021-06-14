@@ -14,17 +14,17 @@ public class E5meetCrush {
     private boolean con;
 
 
-    int convince=0, KnowSize=1;
+    int convince = 0, KnowSize = 1;
     private int Vertices;   // No. of vertices
     private LinkedList<Integer> adj_list[]; //Adjacency Lists
     LinkedList<Integer> queue = new LinkedList<Integer>();
-    LinkedList<Boolean> visit= new LinkedList<>();
+    LinkedList<Boolean> visit = new LinkedList<>();
 
 
-    public E5meetCrush(int v) {
+    public E5meetCrush(int v, int currentStudentId) {
         Vertices = v;
         adj_list = new LinkedList[v];
-        for (int i=0; i<v; ++i){         //create adjacency lists
+        for (int i = 0; i < v; ++i) {         //create adjacency lists
             adj_list[i] = new LinkedList();
             visit.add(i, Boolean.FALSE);
         }
@@ -32,21 +32,21 @@ public class E5meetCrush {
 
 
     // add an edge to the graph
-    void addEdge(int v,int w) {
+    void addEdge(int v, int w) {
         adj_list[v].add(w);
         adj_list[w].add(v);
     }
 
 
-    void BFS()   {
+    void BFS(int currentStudentId) {
 
-        this.crush= crush();
-        this.spreader =spreader(crush);
-        System.out.println("Your have a crush on Student "+ crush);
+        this.crush = crush();
+        this.spreader = spreader(crush);
+        System.out.println("Your have a crush on Student " + crush);
 
 
-        int day=1;
-        System.out.println("Stanger "+ spreader +" starts to spread rumors about you\n" );
+        int day = 1;
+        System.out.println("Stanger " + spreader + " starts to spread rumors about you\n");
         // BFS queue
 
         // current node = visited, insert into queue
@@ -54,74 +54,73 @@ public class E5meetCrush {
         queue.add(spreader);
 
 
-        while (queue.size() != 0)  {
+        while (queue.size() != 0) {
 
             LinkedList<Integer> nextQueue = new LinkedList<Integer>();
             boolean dayPrinted = false;
-            con=true;
+            con = true;
 
             // traversed ALL the nodes in this layer
             // and put them into the nextLayer queue
-            while(queue.size() != 0) {
+            while (queue.size() != 0) {
                 // deque an entry from queue and process it
                 spreader = queue.poll();
 
 
                 // get all adjacent nodes of current node and process
                 Iterator<Integer> i = adj_list[spreader].listIterator();
-                while (i.hasNext()){
+                while (i.hasNext()) {
                     int n = i.next();
 
-                    if ( visit.get(n).booleanValue()==Boolean.FALSE)
-                    {
-                        if(!dayPrinted){
-                            System.out.println("**** Day "+day+" ****");
-                            dayPrinted=true;
+                    if (visit.get(n).booleanValue() == Boolean.FALSE) {
+                        if (!dayPrinted) {
+                            System.out.println("**** Day " + day + " ****");
+                            dayPrinted = true;
                         }
                         visit.set(n, Boolean.TRUE);
                         nextQueue.add(n);
                         KnowSize++;
                         //System.out.print("spreaded to student: ");
-                        System.out.print(n+ " ");
+                        System.out.print(n + " ");
 
                     }
                 }
-                if(nextQueue.contains(currentStudentId)){      //YOU
+                if (nextQueue.contains(currentStudentId)) {      //YOU
                     System.out.println("\nRumors spread to your ear,you stop spreading");
-                    int y=nextQueue.indexOf(5);        //remove object
+                    int y = nextQueue.indexOf(5);        //remove object
                     nextQueue.remove(y);
                 }
 
-                if(nextQueue.contains(crush)){
-                    con=false;
+                if (nextQueue.contains(crush)) {
+                    con = false;
                     queue.clear();
-                    System.out.println("\nOh no, your crush("+crush+")"+" knows!\n");
+                    System.out.println("\nOh no, your crush(" + crush + ")" + " knows!\n");
                 }
             }
-            if(dayPrinted && con){
+            if (dayPrinted && con) {
                 queue = nextQueue;
                 convinceOne();
                 day++;
             }
         }
-        if (con!=false){
-            System.out.println("Rumors will not reach to your crush, GOODLUCK!");}
+        if (con != false) {
+            System.out.println("Rumors will not reach to your crush, GOODLUCK!");
+        }
         end();
     }
 
-    public int crush(){
-        Random r=new Random();
-        int crush= r.nextInt(10)+1;
+    public int crush() {
+        Random r = new Random();
+        int crush = r.nextInt(10) + 1;
 
-        if (crush==currentStudentId){
-            crush();
+        if (crush == currentStudentId) {
+            return crush();
+        } else {
+            return crush;
         }
-        else
-            crush= crush;
-        return crush;
     }
 
-    public int spreader(int crush){
+    public int spreader(int crush) {
         /*LinkedList<Integer> keys = new LinkedList<Integer>();
         keys.add(crush);
         
@@ -133,8 +132,8 @@ public class E5meetCrush {
         } else {
             return spreader(crush);
         }*/
-        int i = (int)(Math.random()*10+1);
-        if(i!=crush&&i!=currentStudentId) {
+        int i = (int) (Math.random() * 10 + 1);
+        if (i != crush && i != currentStudentId) {
             return i;
         } else {
             return spreader(crush);
@@ -142,35 +141,33 @@ public class E5meetCrush {
     }
 
 
+    public void convinceOne() {
 
-    public void convinceOne(){
-
-        if(first) {
+        int input;
+        if (first) {
             System.out.println("You can't convince anyone in the first day!\n");
             first = false;
+            input = 0;
         } else {
             System.out.println("\nWho do you want to convience? Press 0 if none");
             System.out.print("Convince: ");
 /*        Scanner s=new Scanner(System.in);
         int input= s.nextInt();*/
 
-            int input;
-            String str = JOptionPane.showInputDialog(null,"who?","convince",JOptionPane.PLAIN_MESSAGE);
-            if(str==null) {
+
+            String str = JOptionPane.showInputDialog(null, "who?", "convince", JOptionPane.PLAIN_MESSAGE);
+            if (str == null) {
                 input = 0;
             } else {
                 input = Integer.parseInt(str);
             }
 
-            if(input==0){
+        }
+            if (input == 0) {
                 System.out.println("You did not convience anyone\n");
-            }
-
-            else if(!queue.contains(input)){
+            } else if (!queue.contains(input)) {
                 convinceOne();
-            }
-
-            else {
+            } else {
                 convince++;
 
                 // get all adjacent nodes of current node and process
@@ -186,17 +183,18 @@ public class E5meetCrush {
 
                 System.out.println("This student stops spreading to his friends\n");
             }
-        }
+
     }
 
-    public void end(){
-        System.out.println(":: "+KnowSize+" person knows about your rumors");
-        System.out.println(":: "+convince+" person has been convinced");
+    public void end() {
+        System.out.println(":: " + KnowSize + " person knows about your rumors");
+        System.out.println(":: " + convince + " person has been convinced");
     }
 
     public void meet(int currentStudentId) {
-        this.currentStudentId = currentStudentId;
-        E5meetCrush g = new E5meetCrush(11);
+//        this.currentStudentId = currentStudentId;
+//        System.out.println(currentStudentId);
+        E5meetCrush g = new E5meetCrush(11,currentStudentId);
         //add edges to the graph
         g.addEdge(1, 2);
         g.addEdge(1, 7);
@@ -208,14 +206,13 @@ public class E5meetCrush {
         g.addEdge(9, 10);
 
         //print BFS sequence
-        g.BFS();
+        g.BFS(currentStudentId);
     }
 
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
         //vertices
 
-        E5meetCrush e5meetCrush = new E5meetCrush(11);
+        E5meetCrush e5meetCrush = new E5meetCrush(11,5);
         e5meetCrush.meet(5);
     }
 
