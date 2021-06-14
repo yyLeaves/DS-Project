@@ -1,7 +1,7 @@
 # Data Structure Assignment
 https://github.com/yyLeaves/DS-Project
 
-## Contributors (Alphabets Order):
+## Contributors (Alphabetical Order):
 + [@AhToh643](https://github.com/AhToh643)
 + [@jeongie](https://github.com/jeongie)
 + [@Koukotsukan](https://github.com/Koukotsukan)
