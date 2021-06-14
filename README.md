@@ -35,6 +35,12 @@ https://github.com/yyLeaves/DS-Project
 - Assign Test and debug tasks
 - Discuss the time for next meeting, 10/06/2021
 
+## 10/06/2021 Fifth Meeting
+- Discuss about the report
+
+## 12/06/2021 Sixth Meeting
+- Discuss about the report
+
 # Handbook
 
 ## Entrance
