@@ -39,7 +39,7 @@ public class E5meetCrush {
     }
 
 
-    void BFS() {
+    void BFS(int currentStudentId) {
 
         this.crush = crush();
         this.spreader = spreader(crush);
@@ -207,7 +207,7 @@ public class E5meetCrush {
         g.addEdge(9, 10);
 
         //print BFS sequence
-        g.BFS();
+        g.BFS(currentStudentId);
     }
 
     public static void main(String args[]) {
