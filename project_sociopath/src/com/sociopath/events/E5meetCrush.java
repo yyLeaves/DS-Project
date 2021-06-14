@@ -97,7 +97,7 @@ public class E5meetCrush {
                 }
                 if (nextQueue.contains(currentStudentId)) {      //YOU
                     System.out.println("\nRumors spread to your ear,you stop spreading");
-                    int y = nextQueue.indexOf(5);        //remove object
+                    int y = nextQueue.indexOf(currentStudentId);        //remove object
                     nextQueue.remove(y);
                 }
 
