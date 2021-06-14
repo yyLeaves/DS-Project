@@ -2,10 +2,10 @@
 https://github.com/yyLeaves/DS-Project
 
 Contributors (Alphabets Order):
-+ CHEONG HUI TING
-+ NIU ZHAOHANG
-+ TOH YI HENG
-+ YEYANG LIU
++ [CHEONG HUI TING](https://github.com/jeongie)
++ [NIU ZHAOHANG](https://github.com/Koukotsukan)
++ [TOH YI HENG](https://github.com/AhToh643)
++ [YEYANG LIU](https://github.com/yyLeaves)
 
 
 ## 20/05/2021 First Meeting
