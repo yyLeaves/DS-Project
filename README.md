@@ -2,10 +2,10 @@
 https://github.com/yyLeaves/DS-Project
 
 Contributors (Alphabets Order):
-+ [CHEONG HUI TING](https://github.com/jeongie)
-+ [NIU ZHAOHANG](https://github.com/Koukotsukan)
-+ [TOH YI HENG](https://github.com/AhToh643)
-+ [YEYANG LIU](https://github.com/yyLeaves)
++ [@AhToh643](https://github.com/AhToh643)
++ [@jeongie](https://github.com/jeongie)
++ [@Koukotsukan](https://github.com/Koukotsukan)
++ [@yyLeaves](https://github.com/yyLeaves)
 
 
 ## 20/05/2021 First Meeting
@@ -14,8 +14,8 @@ Contributors (Alphabets Order):
 - Discuss about the graph database Neo4j
 - Discuss about the implementation of events
 - Assign work to each person
-  - Toh, Niu -> event 3, 4, 6
-  - Liu, Cheong -> event 1, 2, 5, neo4j db
+  - AhToh643, Koukotsukan -> event 3, 4, 6
+  - yyLeaves, jeongie -> event 1, 2, 5, neo4j db
 - Discuss the time for next meeting - 27/05/2021
 
 ## 28/05/2021 Second Meeting
@@ -24,8 +24,8 @@ Contributors (Alphabets Order):
 - Abandon neo4j solution because of redundancy
 - Discuss about the use of git repository
 - Assign extra feature work & deadline of basic features to team members
-  + Yeyang & Huiting: 1,2,5（Before Week 12） + Parallel Farming(After Week 12)
-  + Toh & Niu：3，4，6（Before Week 12）+ Six Degree（After Week 12）
+  + yyLeaves & jeongie: 1,2,5（Before Week 12） + Parallel Farming(After Week 12)
+  + AhToh643 & Koukotsukan：3，4，6（Before Week 12）+ Six Degree（After Week 12）
 - Discuss the time for next meeting - 28/05/2021
 
 ## 04/06/2021 Third Meeting
