@@ -1,5 +1,3 @@
-
-# Sociopath
 <a href="https://mit-license.org/">![MIT License](https://img.shields.io/badge/license-MIT-blueviolet)</a>
 
 https://github.com/yyLeaves/DS-Project
