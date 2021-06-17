@@ -54,7 +54,7 @@ public class Student {
      */
     public boolean isFriendWith(Student student) {
         if (student.relationships.containsKey(this)) {
-            if (student.relationships.get(this) <= 0) {
+            if (student.relationships.get(this) < 0) {
                 return false;
             }
         } else {
@@ -91,7 +91,7 @@ public class Student {
         stu1Id--;
         stu2Id--;
         if (students.get(stu1Id).relationships.containsKey(students.get(stu2Id))) {
-            if (students.get(stu1Id).relationships.get(students.get(stu2Id)) <= 0) {
+            if (students.get(stu1Id).relationships.get(students.get(stu2Id)) < 0) {
                 return false;
             }
         } else {
