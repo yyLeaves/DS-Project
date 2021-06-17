@@ -54,14 +54,14 @@ public class Student {
      */
     public boolean isFriendWith(Student student) {
         if (student.relationships.containsKey(this)) {
-            if (student.relationships.get(this) < 0) {
+            if (student.relationships.get(this) <= 0) {
                 return false;
             }
         } else {
             return false;
         }
         if (this.relationships.containsKey(student)) {
-            return this.relationships.get(student) > 0;
+            return this.relationships.get(student) >= 0;
         } else {
             return false;
         }
@@ -91,14 +91,14 @@ public class Student {
         stu1Id--;
         stu2Id--;
         if (students.get(stu1Id).relationships.containsKey(students.get(stu2Id))) {
-            if (students.get(stu1Id).relationships.get(students.get(stu2Id)) < 0) {
+            if (students.get(stu1Id).relationships.get(students.get(stu2Id)) <= 0) {
                 return false;
             }
         } else {
             return false;
         }
         if (students.get(stu2Id).relationships.containsKey(students.get(stu1Id))) {
-            return students.get(stu2Id).relationships.get(students.get(stu1Id)) > 0;
+            return students.get(stu2Id).relationships.get(students.get(stu1Id)) >= 0;
         } else {
             return false;
         }
